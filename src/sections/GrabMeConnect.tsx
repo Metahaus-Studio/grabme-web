@@ -21,6 +21,15 @@ export function GrabMeConnect() {
             login/logout, live trip visibility, kids features, safety support,
             lost item tools, and personalized mobility services.
           </p>
+
+          <div className="mt-8">
+            <a
+              href="/grabme-connect"
+              className="inline-flex rounded-2xl bg-[#7AC943] px-6 py-4 text-sm font-bold text-black transition hover:bg-white"
+            >
+              Explore Grab-Me Connect
+            </a>
+          </div>
         </div>
 
         <div className="rounded-[3rem] border border-white/10 bg-white/[0.04] p-6">
@@ -38,7 +47,9 @@ export function GrabMeConnect() {
                   <div key={title as string} className="rounded-2xl bg-white/5 p-5">
                     <Icon className="mb-4 text-[#7AC943]" size={24} />
                     <h4 className="font-bold">{title as string}</h4>
-                    <p className="mt-2 text-xs leading-5 text-white/50">{text as string}</p>
+                    <p className="mt-2 text-xs leading-5 text-white/50">
+                      {text as string}
+                    </p>
                   </div>
                 ))}
               </div>

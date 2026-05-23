@@ -24,6 +24,15 @@ export function Airport() {
               <p className="mt-3 text-sm leading-6 text-black/60">{text as string}</p>
             </div>
           ))}
+
+          <div className="mt-10">
+  <a
+    href="/airport"
+    className="inline-flex rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:bg-[#7AC943] hover:text-black"
+  >
+    Explore Airport Rides
+  </a>
+</div>
         </div>
       </div>
     </section>

@@ -1,0 +1,47 @@
+import { AppScreen } from "@/components/AppScreen";
+
+const screens = [
+  ["Passenger Home", "home"],
+  ["Ride Selection", "rides"],
+  ["Driver Arriving", "driver"],
+  ["Airport", "airport"],
+  ["Students", "student"],
+  ["Membership", "membership"],
+] as const;
+
+export function AppShowcase() {
+  return (
+    <section className="bg-[#050505] px-6 py-24 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <p className="mb-3 font-semibold text-[#7AC943]">APP EXPERIENCE</p>
+          <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl">
+            A real product system, not just a taxi booking screen.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-white/60">
+            GRABME is designed as a complete mobility ecosystem: passenger
+            rides, airport flows, student plans, memberships, and premium
+            vehicle categories.
+          </p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {screens.map(([label, type]) => (
+            <div
+              key={label}
+              className="rounded-[3rem] border border-white/10 bg-white/[0.035] p-6"
+            >
+              <div className="mb-5 flex items-center justify-between">
+                <p className="font-bold">{label}</p>
+                <span className="rounded-full bg-[#7AC943]/15 px-3 py-1 text-xs font-bold text-[#7AC943]">
+                  UI
+                </span>
+              </div>
+              <AppScreen type={type} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

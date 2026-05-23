@@ -29,6 +29,15 @@ export function Students() {
             </div>
           ))}
         </div>
+
+        <div className="mt-10">
+  <a
+    href="/students"
+    className="inline-flex rounded-2xl bg-[#7AC943] px-6 py-4 text-sm font-bold text-black transition hover:bg-white"
+  >
+    Explore Student Rides
+  </a>
+</div>
       </div>
     </section>
   );

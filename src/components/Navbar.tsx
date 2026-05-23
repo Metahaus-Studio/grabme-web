@@ -8,13 +8,14 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    ["Features", "/features"],
-    ["Ride Types", "/ride-types"],
-    ["Students", "/students"],
-    ["Drivers", "/drivers"],
-    ["Corporate", "/corporate"],
-    ["About", "/about"],
-  ];
+  ["Features", "/features"],
+  ["Ride Types", "/ride-types"],
+  ["Students", "/students"],
+  ["Airport", "/airport"],
+  ["Connect", "/grabme-connect"],
+  ["Corporate", "/corporate"],
+  ["About", "/about"],
+];
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/60 backdrop-blur-xl">

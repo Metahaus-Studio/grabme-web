@@ -32,6 +32,15 @@ export function Membership() {
             </div>
           ))}
         </div>
+
+        <div className="mt-8">
+  <a
+    href="/membership"
+    className="inline-flex rounded-2xl bg-black px-6 py-4 text-sm font-bold text-white transition hover:bg-[#7AC943] hover:text-black"
+  >
+    Explore Membership
+  </a>
+</div>
       </div>
     </section>
   );
