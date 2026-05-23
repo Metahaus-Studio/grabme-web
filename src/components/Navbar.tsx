@@ -2,7 +2,13 @@ import { Download, Globe2 } from "lucide-react";
 import { Button } from "./Button";
 
 export function Navbar() {
-  const links = ["Features", "Ride Types", "Drivers", "Corporate", "About"];
+  const links = [
+  ["Features", "/features"],
+  ["Ride Types", "/ride-types"],
+  ["Drivers", "/drivers"],
+  ["Corporate", "/corporate"],
+  ["About", "/about"],
+];
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/50 backdrop-blur-xl">
@@ -20,11 +26,11 @@ export function Navbar() {
         </a>
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-white/75 lg:flex">
-          {links.map((link) => (
-            <a key={link} href={`#${link.toLowerCase().replace(" ", "-")}`} className="hover:text-white">
-              {link}
-            </a>
-          ))}
+          {links.map(([label, href]) => (
+  <a key={label} href={href} className="hover:text-white">
+    {label}
+  </a>
+))}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
