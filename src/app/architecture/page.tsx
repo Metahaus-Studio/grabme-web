@@ -14,22 +14,23 @@ import {
 } from "lucide-react";
 
 const layers = [
-  ["Passenger App", "Booking, ride categories, live tracking, payment, history, profile.", Smartphone],
-  ["Driver App", "Availability, ride requests, navigation, ride status, earnings.", UserCheck],
-  ["Admin Dashboard", "Driver approval, rides, payments, users, support, analytics.", LayoutDashboard],
-  ["Backend API", "Authentication, ride logic, pricing, payments, notifications, permissions.", Server],
-  ["Database", "Users, drivers, vehicles, rides, payments, ratings, support tickets.", Database],
-  ["Real-Time Tracking", "Live GPS updates, ride status sync, driver movement, ETA updates.", MapPinned],
-  ["Payments", "Bank Audi / ATM Pay integration, transaction status, failure handling.", CreditCard],
-  ["Notifications", "OTP, ride updates, driver alerts, payment confirmations.", Bell],
-  ["Security", "JWT auth, role permissions, API validation, encrypted sensitive data.", Lock],
+  ["Passenger App", "Booking, ride categories, live tracking, rider payments, history, and profile.", Smartphone],
+  ["Driver App", "Availability, ride requests, navigation, ride status, earnings, and cash-out requests.", UserCheck],
+  ["Admin Dashboard", "Driver approval, rides, payments, payouts, users, support, and analytics.", LayoutDashboard],
+  ["Backend API", "Authentication, ride logic, pricing, rider payments, driver payouts, notifications, and permissions.", Server],
+  ["Database", "Users, drivers, vehicles, rides, payments, payouts, ratings, and support tickets.", Database],
+  ["Real-Time Tracking", "Live GPS updates, ride status sync, driver movement, and ETA updates.", MapPinned],
+  ["Payments & Payouts", "Visa, Mastercard, Wish Money, cash ride handling, and driver payout infrastructure through Bank Audi / ATM systems.", CreditCard],
+  ["Notifications", "OTP, ride updates, driver alerts, payment confirmations, and payout updates.", Bell],
+  ["Security", "JWT auth, role permissions, API validation, payment protection, and encrypted sensitive data.", Lock],
 ];
 
 const flows = [
   ["Ride Request Flow", "Passenger selects pickup/dropoff → ride category → fare estimate → request sent → nearby driver accepts → ride starts → tracking active → ride ends → payment/rating."],
-  ["Driver Flow", "Driver logs in → goes online → receives ride request → accepts/rejects → navigates to pickup → starts trip → completes ride → earnings update."],
-  ["Admin Flow", "Admin approves drivers → monitors live rides → handles support → reviews payments → manages users → tracks operational performance."],
-  ["Payment Flow", "Passenger selects payment → backend creates transaction → Bank Audi/ATM Pay processes → webhook/confirmation updates ride payment status."],
+  ["Driver Flow", "Driver logs in → goes online → receives ride request → accepts/rejects → navigates to pickup → starts trip → completes ride → earnings update → cash-out request if available."],
+  ["Admin Flow", "Admin approves drivers → monitors live rides → handles support → reviews rider payments → manages driver payouts → manages users → tracks operational performance."],
+  ["Payment Flow", "Passengers can pay by Visa, Mastercard, Wish Money, or cash. The backend records payment status, ride completion, and driver earnings."],
+  ["Driver Payout Flow", "Driver balance accumulates from completed rides → driver requests cash-out → admin/system validates balance → Bank Audi / ATM infrastructure supports withdrawal or settlement."],
 ];
 
 export default function ArchitecturePage() {
@@ -40,7 +41,7 @@ export default function ArchitecturePage() {
         <PageHero
           eyebrow="ARCHITECTURE"
           title="GRABME technical architecture."
-          text="A modular system structure for passenger apps, driver apps, admin dashboard, backend APIs, real-time tracking, payment integration, database management, and security."
+          text="A modular system structure for passenger apps, driver apps, admin dashboard, backend APIs, real-time tracking, rider payments, driver payouts, database management, and security."
         />
 
         <section className="bg-[#F7F7F7] px-6 py-24 text-black">
@@ -70,7 +71,8 @@ export default function ArchitecturePage() {
                   "Drivers",
                   "Vehicles",
                   "Rides",
-                  "Payments",
+                  "Rider Payments",
+                  "Driver Payouts",
                   "Ratings",
                   "Support",
                   "Corporate Accounts",
@@ -102,9 +104,10 @@ export default function ArchitecturePage() {
               <h2 className="text-4xl font-black">Security Priorities</h2>
               <p className="mt-5 max-w-4xl text-lg leading-8 text-black/65">
                 GRABME should be built with role-based permissions, validated API
-                requests, secure authentication, protected payment flows, location
-                privacy controls, audit logs for admin actions, and careful handling
-                of sensitive user, driver, corporate, and payment data.
+                requests, secure authentication, protected payment and payout flows,
+                location privacy controls, audit logs for admin actions, and careful
+                handling of sensitive user, driver, corporate, ride, payment, and
+                payout data.
               </p>
             </div>
           </div>

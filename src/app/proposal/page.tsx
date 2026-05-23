@@ -173,11 +173,9 @@ export default function ProposalPage() {
               <CreditCard className="mb-5 text-[#7AC943]" size={38} />
               <h2 className="text-4xl font-black">Payment Integration</h2>
               <p className="mt-5 max-w-4xl text-lg leading-8 text-black/65">
-                Phase 1 includes Bank Audi / ATM Pay integration planning and
-                implementation. Final technical feasibility depends on merchant
-                account approval, API access, payment documentation, redirect or
-                SDK requirements, webhook behavior, settlement rules, refund
-                handling, and security requirements from the bank.
+                Phase 1 includes payment infrastructure for Visa, Mastercard, Wish Money,
+and cash ride handling, while Bank Audi / ATM systems can later support
+driver cash-outs, settlement operations, and payout management.
               </p>
             </div>
 
