@@ -33,7 +33,7 @@ export function AppShowcase() {
           {screens.map(([label, type]) => (
             <div
               key={label}
-              className="rounded-[3rem] border border-white/10 bg-white/[0.035] p-5 sm:p-7"
+              className="flex min-h-[760px] flex-col rounded-[3rem] border border-white/10 bg-white/[0.035] p-5 sm:p-7"
             >
               <div className="mb-5 flex items-center justify-between">
                 <p className="font-bold">{label}</p>
@@ -42,10 +42,8 @@ export function AppShowcase() {
                 </span>
               </div>
 
-              <div className="flex justify-center overflow-hidden">
-                <div className="origin-top scale-100">
-                  <AppScreen type={type} />
-                </div>
+              <div className="flex flex-1 items-center justify-center overflow-hidden">
+                <AppScreen type={type} />
               </div>
             </div>
           ))}

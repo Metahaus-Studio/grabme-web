@@ -26,18 +26,20 @@ export function AppScreen({ type }: AppScreenProps) {
   };
 
   return (
-    <div className="relative h-[580px] w-[300px] overflow-hidden rounded-[3rem] border border-white/15 bg-[#0B0F0D] p-4 shadow-2xl shadow-[#7AC943]/10">
+    <div className="relative h-[620px] w-[300px] overflow-hidden rounded-[3rem] border border-white/15 bg-[#0B0F0D] p-4 shadow-2xl shadow-[#7AC943]/10">
       <div className="absolute left-1/2 top-3 z-20 h-6 w-28 -translate-x-1/2 rounded-full bg-black" />
 
-      <div className="relative h-full overflow-hidden rounded-[2.35rem] bg-[#07100A] p-5">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-[2.35rem] bg-[#07100A] p-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(122,201,67,0.22),transparent_26%),linear-gradient(135deg,#162016,#030403)]" />
 
-        <div className="relative z-10 mt-8 flex items-center justify-between">
-          <div>
+        <div className="relative z-10 mt-8 flex items-start justify-between">
+          <div className="max-w-[190px]">
             <p className="text-xs text-white/45">GRABME</p>
-            <p className="text-lg font-black text-white">{titleMap[type]}</p>
+            <p className="text-lg font-black leading-tight text-white">
+              {titleMap[type]}
+            </p>
           </div>
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10">
             <BatteryCharging size={18} className="text-[#7AC943]" />
           </div>
         </div>
@@ -126,35 +128,37 @@ function HomeScreen() {
 
 function RideScreen() {
   return (
-    <div className="relative z-10 mt-8 space-y-4">
-      {[
-        ["Standard EV", "Fair everyday ride", "$1.00", Car],
-        ["Priority", "Faster pickup", "$1.25", Sparkles],
-        ["Premium", "Comfort upgrade", "$1.70", Star],
-        ["Luxury", "Executive cars", "$2.70", Car],
-      ].map(([name, text, price, Icon], index) => (
-        <div
-          key={name as string}
-          className={`rounded-3xl border p-4 ${
-            index === 1
-              ? "border-[#7AC943] bg-[#7AC943]/10"
-              : "border-white/10 bg-white/5"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Icon size={22} className="text-[#7AC943]" />
-              <div>
-                <p className="font-bold text-white">{name as string}</p>
-                <p className="text-xs text-white/45">{text as string}</p>
+    <div className="relative z-10 mt-8 flex h-[460px] flex-col">
+      <div className="space-y-4">
+        {[
+          ["Standard EV", "Fair everyday ride", "$1.00", Car],
+          ["Priority", "Faster pickup", "$1.25", Sparkles],
+          ["Premium", "Comfort upgrade", "$1.70", Star],
+          ["Luxury", "Executive cars", "$2.70", Car],
+        ].map(([name, text, price, Icon], index) => (
+          <div
+            key={name as string}
+            className={`rounded-3xl border p-4 ${
+              index === 1
+                ? "border-[#7AC943] bg-[#7AC943]/10"
+                : "border-white/10 bg-white/5"
+            }`}
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <Icon size={22} className="text-[#7AC943]" />
+                <div>
+                  <p className="font-bold text-white">{name as string}</p>
+                  <p className="text-xs text-white/45">{text as string}</p>
+                </div>
               </div>
+              <p className="text-sm font-black text-white">{price as string}</p>
             </div>
-            <p className="text-sm font-black text-white">{price as string}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
-      <button className="mt-4 w-full rounded-2xl bg-[#7AC943] py-4 text-sm font-black text-black">
+      <button className="mt-auto w-full rounded-2xl bg-[#7AC943] py-4 text-sm font-black text-black">
         Confirm Ride
       </button>
     </div>
@@ -199,7 +203,7 @@ function DriverScreen() {
 
 function AirportScreen() {
   return (
-    <div className="relative z-10 mt-8">
+    <div className="relative z-10 mt-8 flex h-[460px] flex-col">
       <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5">
         <Plane className="mb-5 text-[#7AC943]" size={34} />
         <p className="text-xs text-white/45">Flight</p>
@@ -220,7 +224,7 @@ function AirportScreen() {
         )}
       </div>
 
-      <button className="mt-6 w-full rounded-2xl bg-[#7AC943] py-4 text-sm font-black text-black">
+      <button className="mt-auto w-full rounded-2xl bg-[#7AC943] py-4 text-sm font-black text-black">
         Book Airport Ride
       </button>
     </div>
@@ -229,7 +233,7 @@ function AirportScreen() {
 
 function StudentScreen() {
   return (
-    <div className="relative z-10 mt-8">
+    <div className="relative z-10 mt-8 flex h-[460px] flex-col">
       <div className="rounded-[2rem] border border-[#7AC943]/30 bg-[#7AC943]/10 p-5">
         <GraduationCap className="mb-5 text-[#7AC943]" size={34} />
         <p className="text-xs text-white/45">Verified Student</p>
@@ -252,7 +256,7 @@ function StudentScreen() {
         )}
       </div>
 
-      <button className="mt-6 w-full rounded-2xl bg-[#7AC943] py-4 text-sm font-black text-black">
+      <button className="mt-auto w-full rounded-2xl bg-[#7AC943] py-4 text-sm font-black text-black">
         View Student Plans
       </button>
     </div>
@@ -261,7 +265,7 @@ function StudentScreen() {
 
 function MembershipScreen() {
   return (
-    <div className="relative z-10 mt-8">
+    <div className="relative z-10 mt-8 flex h-[460px] flex-col">
       <div className="rounded-[2rem] border border-white/10 bg-white/5 p-5">
         <Gift className="mb-5 text-[#7AC943]" size={34} />
         <p className="text-xs text-white/45">Available points</p>
