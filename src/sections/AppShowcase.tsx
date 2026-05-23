@@ -29,7 +29,7 @@ export function AppShowcase() {
           {screens.map(([label, type]) => (
             <div
               key={label}
-              className="rounded-[3rem] border border-white/10 bg-white/[0.035] p-6"
+              className="rounded-[3rem] border border-white/10 bg-white/[0.035] p-4 sm:p-6"
             >
               <div className="mb-5 flex items-center justify-between">
                 <p className="font-bold">{label}</p>
@@ -37,9 +37,22 @@ export function AppShowcase() {
                   UI
                 </span>
               </div>
-              <AppScreen type={type} />
+
+              <div className="flex justify-center overflow-hidden">
+                <div className="origin-top scale-[0.86] sm:scale-100">
+                  <AppScreen type={type} />
+                </div>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 rounded-[3rem] border border-white/10 bg-[#7AC943]/10 p-8 text-center">
+          <h3 className="text-3xl font-black">Ready for proposal mode.</h3>
+          <p className="mx-auto mt-3 max-w-2xl text-white/60">
+            These screens will be used to prepare the client proposal, product
+            scope, and Figma confirmation file before full development starts.
+          </p>
         </div>
       </div>
     </section>
