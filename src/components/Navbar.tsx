@@ -8,59 +8,63 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-  ["Features", "/features"],
-  ["Ride Types", "/ride-types"],
-  ["Students", "/students"],
-  ["Airport", "/airport"],
-  ["Connect", "/grabme-connect"],
-  ["Corporate", "/corporate"],
-  ["About", "/about"],
-  ["Proposal", "/proposal"],
-];
+    ["Features", "/features"],
+    ["Ride Types", "/ride-types"],
+    ["Students", "/students"],
+    ["Airport", "/airport"],
+    ["Connect", "/grabme-connect"],
+    ["Corporate", "/corporate"],
+    ["About", "/about"],
+    ["Proposal", "/proposal"],
+  ];
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/60 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/65 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
         <a href="/" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-black">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-black">
             <span className="text-xl font-black text-[#7AC943]">⚡</span>
           </div>
+
           <div>
-            <div className="text-xl font-black tracking-tight text-white">GRABME</div>
+            <div className="text-xl font-black tracking-tight text-white">
+              GRABME
+            </div>
             <div className="text-xs font-semibold tracking-[0.35em] text-[#7AC943]">
               E-TAXI
             </div>
           </div>
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-white/75 lg:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 xl:flex">
           {links.map(([label, href]) => (
-            <a key={label} href={href} className="hover:text-white">
+            <a key={label} href={href} className="transition hover:text-white">
               {label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <button className="flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-3 text-sm text-white/80">
             <Globe2 size={16} />
             EN
           </button>
-          <Button href="#download">
+
+          <Button href="/#download">
             Download App <Download size={16} />
           </Button>
         </div>
 
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 text-white lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 text-white xl:hidden"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-black px-6 pb-6 pt-2 lg:hidden">
+        <div className="border-t border-white/10 bg-black px-6 pb-6 pt-2 xl:hidden">
           <nav className="grid gap-2">
             {links.map(([label, href]) => (
               <a
@@ -82,6 +86,7 @@ export function Navbar() {
             >
               Contact
             </a>
+
             <a
               href="/#download"
               onClick={() => setOpen(false)}
