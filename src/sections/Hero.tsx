@@ -2,14 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/Button";
-import { PhoneMockup } from "@/components/PhoneMockup";
+import { AppScreen } from "@/components/AppScreen";
 import {
   BatteryCharging,
   Car,
   CreditCard,
   MapPin,
   Plane,
-  ShieldCheck,
   Sparkles,
   Users,
   Zap,
@@ -26,13 +25,9 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#050505] px-6 pb-20 pt-32 text-white md:pt-40">
+    <section className="relative min-h-screen overflow-hidden bg-[#050505] px-6 pb-20 pt-44 text-white md:pt-52">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_24%,rgba(122,201,67,0.27),transparent_28%),radial-gradient(circle_at_18%_70%,rgba(122,201,67,0.11),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.05),transparent_36%)]" />
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#050505] to-transparent" />
-
-      <div className="pointer-events-none absolute left-1/2 top-28 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[#7AC943]/10 blur-3xl" />
-      <div className="pointer-events-none absolute right-0 top-36 h-[520px] w-[520px] rounded-full bg-[#7AC943]/15 blur-3xl" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
@@ -49,10 +44,9 @@ export function Hero() {
             <span>Fairer than traditional ride apps</span>
           </div>
 
-          <h1 className="max-w-5xl text-5xl font-black leading-[0.92] tracking-[-0.06em] text-white md:text-7xl xl:text-8xl">
+          <h1 className="max-w-5xl text-5xl font-black leading-[0.92] tracking-[-0.06em] md:text-7xl xl:text-8xl">
             Lebanon’s Next Generation{" "}
-            <span className="text-[#7AC943]">Electric Mobility</span>{" "}
-            Platform.
+            <span className="text-[#7AC943]">Electric Mobility</span> Platform.
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/65 md:text-lg">
@@ -94,48 +88,17 @@ export function Hero() {
           transition={{ duration: 0.85, delay: 0.08 }}
           className="relative hidden min-h-[660px] lg:block"
         >
-          <div className="absolute left-1/2 top-1/2 h-[540px] w-[540px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7AC943]/20 blur-3xl" />
+          <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7AC943]/20 blur-3xl" />
 
           <motion.div
-  initial={{ opacity: 0, scale: 0.94, y: 24 }}
-  animate={{ opacity: 1, scale: 1, y: 0 }}
-  transition={{ duration: 0.85, delay: 0.08 }}
-  className="relative hidden min-h-[620px] lg:block"
->
-  <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7AC943]/20 blur-3xl" />
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-1/2 top-0 z-20 -translate-x-1/2"
+          >
+            <AppScreen type="home" />
+          </motion.div>
 
-  <motion.div
-    animate={{ y: [0, -12, 0] }}
-    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-    className="absolute left-1/2 top-0 z-20 -translate-x-1/2"
-  >
-    <PhoneMockup />
-  </motion.div>
-
-  <div className="absolute bottom-20 left-4 z-30 rounded-[2rem] border border-white/10 bg-black/70 p-5 shadow-2xl backdrop-blur-xl">
-    <div className="flex items-center gap-3">
-      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#7AC943]/15">
-        <Sparkles className="text-[#7AC943]" />
-      </div>
-      <div>
-        <p className="text-sm text-white/50">Next feature</p>
-        <p className="font-bold">Grab-Me Connect</p>
-      </div>
-    </div>
-  </div>
-
-  <div className="absolute bottom-8 right-4 z-30 rounded-[2rem] border border-white/10 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
-    <div className="flex items-center gap-3">
-      <ShieldCheck className="text-[#7AC943]" />
-      <div>
-        <p className="text-sm text-white/50">Platform layer</p>
-        <p className="font-bold">Cybersecurity First</p>
-      </div>
-    </div>
-  </div>
-</motion.div>
-
-          <div className="absolute bottom-16 left-0 z-30 rounded-[2rem] border border-white/10 bg-black/70 p-5 shadow-2xl backdrop-blur-xl">
+          <div className="absolute bottom-6 left-0 z-30 rounded-[2rem] border border-white/10 bg-black/75 p-5 shadow-2xl backdrop-blur-xl">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#7AC943]/15">
                 <Sparkles className="text-[#7AC943]" />
@@ -143,16 +106,6 @@ export function Hero() {
               <div>
                 <p className="text-sm text-white/50">Next feature</p>
                 <p className="font-bold">Grab-Me Connect</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute bottom-4 right-2 z-30 rounded-[2rem] border border-white/10 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="text-[#7AC943]" />
-              <div>
-                <p className="text-sm text-white/50">Platform layer</p>
-                <p className="font-bold">Cybersecurity First</p>
               </div>
             </div>
           </div>
