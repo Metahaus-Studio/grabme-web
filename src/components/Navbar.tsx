@@ -17,6 +17,7 @@ export function Navbar() {
     ["About", "/about"],
     ["Proposal", "/proposal"],
     ["Roadmap", "/roadmap"],
+    ["Architecture", "/architecture"],
   ];
 
   return (
