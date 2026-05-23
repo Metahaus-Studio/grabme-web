@@ -16,6 +16,7 @@ export function Navbar() {
     ["Corporate", "/corporate"],
     ["About", "/about"],
     ["Proposal", "/proposal"],
+    ["Roadmap", "/roadmap"],
   ];
 
   return (

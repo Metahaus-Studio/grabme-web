@@ -186,13 +186,14 @@ export default function ProposalPage() {
                 <Clock className="mb-5 text-[#7AC943]" size={36} />
                 <h2 className="text-3xl font-black">Estimated Timeline</h2>
                 <ul className="mt-6 space-y-3 text-white/65">
-                  <li>• Discovery, UX flows, and architecture: 2–3 weeks</li>
-                  <li>• Backend and database foundation: 4–6 weeks</li>
-                  <li>• Passenger and driver app development: 6–10 weeks</li>
-                  <li>• Admin dashboard and payment setup: 4–6 weeks</li>
-                  <li>• Testing, deployment, and pilot preparation: 2–4 weeks</li>
-                  <li>• Realistic MVP delivery: 3–5 months</li>
-                </ul>
+  <li>• Discovery, UX flows, and architecture: completed / in progress</li>
+  <li>• Backend and database foundation: 3–4 weeks</li>
+  <li>• Passenger app development: 4–5 weeks</li>
+  <li>• Driver app development: 4–5 weeks</li>
+  <li>• Admin dashboard and Bank Audi setup: 3–4 weeks</li>
+  <li>• Testing, deployment, and pilot preparation: 2–3 weeks</li>
+  <li>• Phase 1 MVP delivery target: 3 months</li>
+</ul>
               </div>
 
               <div className="rounded-[2rem] bg-white p-8 shadow-sm">
