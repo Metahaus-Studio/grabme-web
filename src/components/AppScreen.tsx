@@ -92,9 +92,9 @@ function HomeScreen() {
         <p className="text-xs text-white/45">Nearby electric cars</p>
         <div className="mt-4 space-y-3">
           {[
-            ["Standard", "3 min", "LL 85,000", Car],
-            ["Priority", "2 min", "LL 110,000", Sparkles],
-            ["Luxury", "7 min", "LL 240,000", Star],
+           ["Standard", "3 min", "$1.00", Car],
+["Priority", "2 min", "$1.25", Sparkles],
+["Luxury", "7 min", "$2.70", Star],
           ].map(([name, eta, price, Icon], index) => (
             <div
               key={name as string}
@@ -122,10 +122,10 @@ function RideScreen() {
   return (
     <div className="relative z-10 mt-8 space-y-4">
       {[
-        ["Standard EV", "Fair everyday ride", "LL 85,000", Car],
-        ["Priority", "Faster pickup", "LL 110,000", Sparkles],
-        ["Premium", "Comfort upgrade", "LL 150,000", Star],
-        ["Luxury", "Executive cars", "LL 240,000", Car],
+        ["Standard EV", "Fair everyday ride", "$1.00", Car],
+["Priority", "Faster pickup", "$1.25", Sparkles],
+["Premium", "Comfort upgrade", "$1.70", Star],
+["Luxury", "Executive cars", "$2.70", Car],
       ].map(([name, text, price, Icon], index) => (
         <div
           key={name as string}
@@ -245,7 +245,7 @@ function MembershipScreen() {
 
       <div className="mt-4 space-y-3">
         {[
-          ["Gift card", "LL 300,000 credit"],
+          ["Gift card", "$3.35 ride credit"],
           ["Priority bonus", "Upgrade next ride"],
           ["Blogger code", "15% off"],
         ].map(([name, text]) => (

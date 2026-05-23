@@ -53,6 +53,10 @@ export function AppShowcase() {
             These screens will be used to prepare the client proposal, product
             scope, and Figma confirmation file before full development starts.
           </p>
+
+          <p className="mt-3 text-sm text-white/40">
+  Example prices shown in USD. LBP conversion can be displayed using 1 USD ≈ 89,000 LBP.
+</p>
         </div>
       </div>
     </section>

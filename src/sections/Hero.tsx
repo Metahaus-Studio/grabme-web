@@ -97,20 +97,43 @@ export function Hero() {
           <div className="absolute left-1/2 top-1/2 h-[540px] w-[540px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7AC943]/20 blur-3xl" />
 
           <motion.div
-            animate={{ y: [0, -14, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-16 top-0 z-20"
-          >
-            <PhoneMockup />
-          </motion.div>
+  initial={{ opacity: 0, scale: 0.94, y: 24 }}
+  animate={{ opacity: 1, scale: 1, y: 0 }}
+  transition={{ duration: 0.85, delay: 0.08 }}
+  className="relative hidden min-h-[620px] lg:block"
+>
+  <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7AC943]/20 blur-3xl" />
 
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute right-4 top-20 z-10 scale-[0.86] opacity-80"
-          >
-            <PhoneMockup />
-          </motion.div>
+  <motion.div
+    animate={{ y: [0, -12, 0] }}
+    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+    className="absolute left-1/2 top-0 z-20 -translate-x-1/2"
+  >
+    <PhoneMockup />
+  </motion.div>
+
+  <div className="absolute bottom-20 left-4 z-30 rounded-[2rem] border border-white/10 bg-black/70 p-5 shadow-2xl backdrop-blur-xl">
+    <div className="flex items-center gap-3">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#7AC943]/15">
+        <Sparkles className="text-[#7AC943]" />
+      </div>
+      <div>
+        <p className="text-sm text-white/50">Next feature</p>
+        <p className="font-bold">Grab-Me Connect</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="absolute bottom-8 right-4 z-30 rounded-[2rem] border border-white/10 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
+    <div className="flex items-center gap-3">
+      <ShieldCheck className="text-[#7AC943]" />
+      <div>
+        <p className="text-sm text-white/50">Platform layer</p>
+        <p className="font-bold">Cybersecurity First</p>
+      </div>
+    </div>
+  </div>
+</motion.div>
 
           <div className="absolute bottom-16 left-0 z-30 rounded-[2rem] border border-white/10 bg-black/70 p-5 shadow-2xl backdrop-blur-xl">
             <div className="flex items-center gap-3">
