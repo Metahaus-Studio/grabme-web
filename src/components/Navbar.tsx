@@ -5,6 +5,7 @@ export function Navbar() {
   const links = [
   ["Features", "/features"],
   ["Ride Types", "/ride-types"],
+  ["Students", "/students"],
   ["Drivers", "/drivers"],
   ["Corporate", "/corporate"],
   ["About", "/about"],

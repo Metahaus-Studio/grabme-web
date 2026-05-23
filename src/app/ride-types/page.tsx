@@ -6,22 +6,42 @@ const rideTypes = [
   {
     name: "Standard",
     subtitle: "Fair everyday electric rides.",
-    points: ["Affordable pricing", "Fast pickup", "Everyday EV transportation"],
+    points: ["Affordable pricing", "Fast pickup", "Lebanese local-focused mobility"],
+  },
+  {
+    name: "Priority",
+    subtitle: "Faster matching when demand is high.",
+    points: ["Inspired by DiDi-style priority rides", "Higher pickup priority", "Dynamic pricing by car type"],
   },
   {
     name: "Premium",
     subtitle: "Comfort-focused rides.",
-    points: ["Higher-end vehicles", "Comfortable interiors", "Priority experience"],
+    points: ["Better EV vehicles", "Higher-rated drivers", "Comfortable daily upgrades"],
   },
   {
     name: "Luxury",
-    subtitle: "Executive transportation.",
-    points: ["Luxury EVs", "Airport transfers", "VIP and event rides"],
+    subtitle: "Executive and special car experience.",
+    points: ["Luxury cars", "Airport and VIP rides", "Events and premium transfers"],
+  },
+  {
+    name: "Airport",
+    subtitle: "Flight-linked mobility.",
+    points: ["Flight booking support", "Pickup tracking", "Airport window experience"],
+  },
+  {
+    name: "Students",
+    subtitle: "Affordable student mobility.",
+    points: ["University-focused rides", "Student membership plans", "Lower-cost routes"],
+  },
+  {
+    name: "Shopping",
+    subtitle: "Assisted grocery rides.",
+    points: ["Elderly support", "Driver helps with groceries", "Short assistance add-on"],
   },
   {
     name: "Corporate",
-    subtitle: "Business mobility.",
-    points: ["Company accounts", "Monthly billing", "Ride reports"],
+    subtitle: "Business mobility subscriptions.",
+    points: ["Banks and employees", "Monthly billing", "Company dashboards"],
   },
 ];
 
@@ -32,8 +52,8 @@ export default function RideTypesPage() {
       <main>
         <PageHero
           eyebrow="RIDE TYPES"
-          title="Choose the right ride for every moment."
-          text="GRABME is designed for daily transportation, premium rides, luxury travel, and corporate mobility."
+          title="A ride category for every customer segment."
+          text="GRABME supports daily commuters, students, airport travelers, elderly customers, corporate teams, premium riders, and luxury clients."
         />
 
         <section className="bg-[#050505] px-6 py-24 text-white">
@@ -41,8 +61,10 @@ export default function RideTypesPage() {
             {rideTypes.map((ride, index) => (
               <div
                 key={ride.name}
-                className={`rounded-[2rem] border p-8 ${
-                  index === 1 ? "border-[#7AC943] bg-[#7AC943]/10" : "border-white/10 bg-white/[0.04]"
+                className={`rounded-[2rem] border p-8 transition hover:-translate-y-1 ${
+                  index === 1 || index === 3
+                    ? "border-[#7AC943] bg-[#7AC943]/10"
+                    : "border-white/10 bg-white/[0.04]"
                 }`}
               >
                 <div className="mb-8 h-36 rounded-[1.5rem] bg-gradient-to-br from-white/15 to-white/5" />
