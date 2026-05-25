@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Download, Globe2, Menu, X } from "lucide-react";
 import { Button } from "./Button";
@@ -23,19 +24,26 @@ export function Navbar() {
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/65 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="/" className="flex items-center">
-  <img
-    src="/grabme-logo.png"
-    alt="GrabMe"
-    className="h-14 w-auto object-contain"
-  />
-</a>
+        <Link href="/" className="flex items-center gap-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-black">
+            <span className="text-xl font-black text-[#7AC943]">⚡</span>
+          </div>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 xl:flex">
+          <div>
+            <div className="text-xl font-black tracking-tight text-white">
+              GRABME
+            </div>
+            <div className="text-xs font-semibold tracking-[0.35em] text-[#7AC943]">
+              E-TAXI
+            </div>
+          </div>
+        </Link>
+
+        <nav className="hidden items-center gap-5 text-sm font-medium text-white/70 xl:flex">
           {links.map(([label, href]) => (
-            <a key={label} href={href} className="transition hover:text-white">
+            <Link key={label} href={href} className="transition hover:text-white">
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -62,34 +70,16 @@ export function Navbar() {
         <div className="border-t border-white/10 bg-black px-6 pb-6 pt-2 xl:hidden">
           <nav className="grid gap-2">
             {links.map(([label, href]) => (
-              <a
+              <Link
                 key={label}
                 href={href}
                 onClick={() => setOpen(false)}
                 className="rounded-2xl px-4 py-3 text-white/75 hover:bg-white/10 hover:text-white"
               >
                 {label}
-              </a>
+              </Link>
             ))}
           </nav>
-
-          <div className="mt-4 grid gap-3">
-            <a
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="rounded-2xl border border-white/15 px-4 py-3 text-center text-white/80"
-            >
-              Contact
-            </a>
-
-            <a
-              href="/#download"
-              onClick={() => setOpen(false)}
-              className="rounded-2xl bg-[#7AC943] px-4 py-3 text-center font-bold text-black"
-            >
-              Download App
-            </a>
-          </div>
         </div>
       )}
     </header>

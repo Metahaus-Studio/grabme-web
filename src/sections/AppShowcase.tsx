@@ -49,13 +49,7 @@ export function AppShowcase() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-[3rem] border border-white/10 bg-[#7AC943]/10 p-8 text-center">
-          <h3 className="text-3xl font-black">Ready for proposal mode.</h3>
-          <p className="mx-auto mt-3 max-w-2xl text-white/60">
-            These screens will be used to prepare the client proposal, product
-            scope, and Figma confirmation file before full development starts.
-          </p>
-        </div>
+    
       </div>
     </section>
   );
