@@ -23,20 +23,13 @@ export function Navbar() {
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/65 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="/" className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-black">
-            <span className="text-xl font-black text-[#7AC943]">⚡</span>
-          </div>
-
-          <div>
-            <div className="text-xl font-black tracking-tight text-white">
-              GRABME
-            </div>
-            <div className="text-xs font-semibold tracking-[0.35em] text-[#7AC943]">
-              E-TAXI
-            </div>
-          </div>
-        </a>
+        <a href="/" className="flex items-center">
+  <img
+    src="/grabme-logo.png"
+    alt="GrabMe"
+    className="h-14 w-auto object-contain"
+  />
+</a>
 
         <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 xl:flex">
           {links.map(([label, href]) => (
