@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/grabme-web",
-  assetPrefix: "/grabme-web/",
 };
 
 export default nextConfig;
