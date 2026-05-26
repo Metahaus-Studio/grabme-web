@@ -25,7 +25,7 @@ export function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex items-center">
           <img
-            src="/grabme-web/grabme-logo.png"
+            src="/grabme-logo.png"
             alt="GrabMe"
             className="h-14 w-auto object-contain"
           />
