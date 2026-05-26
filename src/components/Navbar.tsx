@@ -16,9 +16,6 @@ export function Navbar() {
     ["Connect", "/grabme-connect"],
     ["Corporate", "/corporate"],
     ["About", "/about"],
-    ["Proposal", "/proposal"],
-    ["Roadmap", "/roadmap"],
-    ["Architecture", "/architecture"],
   ];
 
   return (
