@@ -27,6 +27,9 @@ const benefits = [
   ["Shopping Assistance", "Optional elderly/grocery support add-on for short service rides.", ShoppingBag],
 ];
 
+const fieldClass =
+  "w-full min-w-0 rounded-2xl border border-white/10 bg-black/40 p-4 text-base outline-none focus:border-[#7AC943]";
+
 export default function DriversPage() {
   const [lang, setLang] = useState<"en" | "ar">("en");
   const [submitted, setSubmitted] = useState(false);
@@ -36,21 +39,22 @@ export default function DriversPage() {
   const ar = lang === "ar";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
+    event.preventDefault();
 
-  const form = event.currentTarget;
+    const form = event.currentTarget;
+    setLoading(true);
+    setSubmitted(false);
+    setError("");
 
-  setLoading(true);
-  setSubmitted(false);
-  setError("");
-
-  const formData = new FormData(form);
+    const formData = new FormData(form);
 
     const payload = {
       full_name: formData.get("full_name"),
       phone: formData.get("phone"),
       whatsapp: formData.get("whatsapp"),
       email: formData.get("email"),
+      nationality: formData.get("nationality"),
+      age: formData.get("age"),
       city: formData.get("city"),
       vehicle_type: formData.get("vehicle_type"),
       vehicle_brand: formData.get("vehicle_brand"),
@@ -61,6 +65,7 @@ export default function DriversPage() {
       interested_in_grabme_ev: formData.get("interested_in_grabme_ev"),
       ev_purchase_plan_interest: formData.get("ev_purchase_plan_interest"),
       driving_license: formData.get("driving_license"),
+      public_service_license: formData.get("public_service_license"),
       experience_years: formData.get("experience_years"),
       availability: formData.get("availability"),
       current_occupation: formData.get("current_occupation"),
@@ -70,9 +75,7 @@ export default function DriversPage() {
       status: "new",
     };
 
-    const { error } = await supabase
-      .from("driver_applications")
-      .insert([payload]);
+    const { error } = await supabase.from("driver_applications").insert([payload]);
 
     setLoading(false);
 
@@ -109,11 +112,15 @@ export default function DriversPage() {
           </div>
         </section>
 
-        <section id="driver-application" className="bg-[#050505] px-6 pb-24 text-white">
-          <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-[3rem] border border-white/10 bg-white/[0.035] p-6 md:p-10">
+        <section id="driver-application" className="scroll-mt-24 bg-[#050505] px-4 pb-24 text-white md:px-6">
+          <div className="mx-auto w-full max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 md:rounded-[3rem] md:p-10">
             <div className="mb-8 flex justify-end gap-2">
-              <button onClick={() => setLang("en")} className={`rounded-xl px-4 py-2 font-bold ${!ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>EN</button>
-              <button onClick={() => setLang("ar")} className={`rounded-xl px-4 py-2 font-bold ${ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>عربي</button>
+              <button onClick={() => setLang("en")} className={`rounded-xl px-4 py-2 font-bold ${!ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>
+                EN
+              </button>
+              <button onClick={() => setLang("ar")} className={`rounded-xl px-4 py-2 font-bold ${ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>
+                عربي
+              </button>
             </div>
 
             <div dir={ar ? "rtl" : "ltr"}>
@@ -134,7 +141,9 @@ export default function DriversPage() {
               {submitted && (
                 <div className="mt-8 flex items-center gap-3 rounded-2xl border border-[#7AC943]/30 bg-[#7AC943]/10 p-4 text-[#7AC943]">
                   <CheckCircle2 size={22} />
-                  <p className="font-bold">{ar ? "تم استلام طلبك. سنتواصل معك قريباً." : "Application received. We’ll contact you soon."}</p>
+                  <p className="font-bold">
+                    {ar ? "تم استلام طلبك. سنتواصل معك قريباً." : "Application received. We’ll contact you soon."}
+                  </p>
                 </div>
               )}
 
@@ -144,40 +153,48 @@ export default function DriversPage() {
                 </div>
               )}
 
-              <form
-  onSubmit={handleSubmit}
-  className="mt-10 grid w-full gap-4 md:grid-cols-2"
->
-                <input name="full_name" required placeholder={ar ? "الاسم الكامل *" : "Full Name *"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="phone" required placeholder={ar ? "رقم الهاتف *" : "Phone Number *"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="whatsapp" placeholder={ar ? "رقم واتساب" : "WhatsApp Number"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="email" type="email" placeholder={ar ? "البريد الإلكتروني" : "Email Address"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="city" required placeholder={ar ? "المدينة / المنطقة *" : "City / Area *"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="vehicle_type" placeholder={ar ? "نوع السيارة" : "Vehicle Type"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="vehicle_brand" placeholder={ar ? "ماركة السيارة" : "Vehicle Brand"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="vehicle_model" placeholder={ar ? "موديل السيارة" : "Vehicle Model"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
-                <input name="vehicle_year" placeholder={ar ? "سنة السيارة" : "Vehicle Year"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
+              <form onSubmit={handleSubmit} className="mt-10 grid w-full grid-cols-1 gap-4 md:grid-cols-2">
+                <input name="full_name" required placeholder={ar ? "الاسم الكامل *" : "Full Name *"} className={fieldClass} />
+                <input name="phone" required placeholder={ar ? "رقم الهاتف *" : "Phone Number *"} className={fieldClass} />
+                <input name="whatsapp" placeholder={ar ? "رقم واتساب" : "WhatsApp Number"} className={fieldClass} />
+                <input name="email" type="email" placeholder={ar ? "البريد الإلكتروني" : "Email Address"} className={fieldClass} />
+                <input name="nationality" placeholder={ar ? "الجنسية" : "Nationality"} className={fieldClass} />
+                <input name="age" placeholder={ar ? "العمر" : "Age"} className={fieldClass} />
+                <input name="city" required placeholder={ar ? "المدينة / المنطقة *" : "City / Area *"} className={fieldClass} />
+                <input name="current_occupation" placeholder={ar ? "العمل الحالي" : "Current Occupation / Work"} className={fieldClass} />
 
-                <select name="own_vehicle" required className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]">
+                <input name="vehicle_type" placeholder={ar ? "نوع السيارة" : "Vehicle Type"} className={fieldClass} />
+                <input name="vehicle_brand" placeholder={ar ? "ماركة السيارة" : "Vehicle Brand"} className={fieldClass} />
+                <input name="vehicle_model" placeholder={ar ? "موديل السيارة" : "Vehicle Model"} className={fieldClass} />
+                <input name="vehicle_year" placeholder={ar ? "سنة السيارة" : "Vehicle Year"} className={fieldClass} />
+
+                <select name="own_vehicle" required className={fieldClass}>
                   <option value="">{ar ? "هل تملك سيارة؟ *" : "Do you own your vehicle? *"}</option>
                   <option value="yes">{ar ? "نعم" : "Yes"}</option>
                   <option value="no">{ar ? "لا" : "No"}</option>
                 </select>
 
-                <select name="electric_vehicle" required className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]">
+                <select name="electric_vehicle" required className={fieldClass}>
                   <option value="">{ar ? "هل السيارة كهربائية؟ *" : "Is your vehicle electric? *"}</option>
                   <option value="yes">{ar ? "نعم" : "Yes"}</option>
                   <option value="no">{ar ? "لا" : "No"}</option>
                   <option value="willing_to_switch">{ar ? "لا، لكن مستعد لقيادة سيارة كهربائية" : "No, but willing to drive EV"}</option>
                 </select>
 
-                <select name="driving_license" required className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]">
+                <select name="driving_license" required className={fieldClass}>
                   <option value="">{ar ? "هل لديك رخصة قيادة صالحة؟ *" : "Valid driving license? *"}</option>
                   <option value="yes">{ar ? "نعم" : "Yes"}</option>
                   <option value="no">{ar ? "لا" : "No"}</option>
                 </select>
 
-                <select name="experience_years" className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]">
+                <select name="public_service_license" className={fieldClass}>
+                  <option value="">{ar ? "هل لديك رخصة نقل عمومي؟" : "Public service driving license?"}</option>
+                  <option value="yes">{ar ? "نعم" : "Yes"}</option>
+                  <option value="no">{ar ? "لا" : "No"}</option>
+                  <option value="in_progress">{ar ? "قيد التجهيز" : "In progress"} </option>
+                </select>
+
+                <select name="experience_years" className={fieldClass}>
                   <option value="">{ar ? "سنوات الخبرة في القيادة" : "Years of driving experience"}</option>
                   <option value="0-1">0–1</option>
                   <option value="2-5">2–5</option>
@@ -185,7 +202,7 @@ export default function DriversPage() {
                   <option value="10+">10+</option>
                 </select>
 
-                <select name="availability" required className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]">
+                <select name="availability" required className={fieldClass}>
                   <option value="">{ar ? "التوفر *" : "Availability *"}</option>
                   <option value="full_time">{ar ? "دوام كامل" : "Full-time"}</option>
                   <option value="part_time">{ar ? "دوام جزئي" : "Part-time"}</option>
@@ -193,101 +210,47 @@ export default function DriversPage() {
                   <option value="flexible">{ar ? "مرن" : "Flexible"}</option>
                 </select>
 
-                <select name="interested_in_grabme_ev" required className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]">
-  <option value="">{ar ? "هل أنت مهتم بالحصول على سيارة كهربائية من GRABME؟ *" : "Interested in getting an EV through GRABME? *"}</option>
-  <option value="yes">{ar ? "نعم" : "Yes"}</option>
-  <option value="no">{ar ? "لا" : "No"}</option>
-  <option value="maybe">{ar ? "ربما، أريد معرفة التفاصيل" : "Maybe, I want more details"}</option>
-</select>
+                <select name="interested_in_grabme_ev" required className={fieldClass}>
+                  <option value="">{ar ? "هل تريد سيارة كهربائية من GRABME؟ *" : "Interested in a GRABME EV? *"}</option>
+                  <option value="yes">{ar ? "نعم" : "Yes"}</option>
+                  <option value="no">{ar ? "لا" : "No"}</option>
+                  <option value="maybe">{ar ? "ربما، أريد معرفة التفاصيل" : "Maybe, I want more details"}</option>
+                </select>
 
-<select name="ev_purchase_plan_interest" className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]">
-  <option value="">{ar ? "نوع خطة السيارة الكهربائية المفضلة" : "Preferred EV plan"}</option>
-  <option value="purchase">{ar ? "شراء" : "Purchase"}</option>
-  <option value="monthly_installments">{ar ? "تقسيط شهري" : "Monthly installments"}</option>
-  <option value="rent_to_own">{ar ? "إيجار مع خيار التملك" : "Rent-to-own"}</option>
-  <option value="lease">{ar ? "تأجير" : "Lease"}</option>
-</select>
+                <select name="ev_purchase_plan_interest" className={fieldClass}>
+                  <option value="">{ar ? "نوع خطة السيارة الكهربائية المفضلة" : "Preferred EV plan"}</option>
+                  <option value="purchase">{ar ? "شراء" : "Purchase"}</option>
+                  <option value="monthly_installments">{ar ? "تقسيط شهري" : "Monthly installments"}</option>
+                  <option value="rent_to_own">{ar ? "إيجار مع خيار التملك" : "Rent-to-own"}</option>
+                  <option value="lease">{ar ? "تأجير" : "Lease"}</option>
+                </select>
 
-<input
-  name="current_occupation"
-  placeholder={ar ? "المهنة الحالية" : "Current Occupation"}
-  className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]"
-/>
+                <div className="w-full min-w-0 rounded-2xl border border-white/10 bg-black/40 p-4 md:col-span-2">
+                  <p className="mb-4 text-white/80">
+                    {ar ? "هل عملت سابقاً مع أي من هذه الفئات؟" : "Have you worked with:"}
+                  </p>
 
-<div className="rounded-2xl border border-white/10 bg-black/40 p-4 md:col-span-2">
-  <p className="mb-4 text-white/80">
-    {ar
-      ? "هل عملت سابقاً مع أي من هذه الفئات؟"
-      : "Have you worked with:"}
-  </p>
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {[
+                      ["uber", "Uber"],
+                      ["allo_taxi", "Allo Taxi"],
+                      ["taxi_service", ar ? "شركة تاكسي" : "Local Taxi Service"],
+                      ["chauffeur", ar ? "سائق خاص / Chauffeur" : "Private Driver / Chauffeur"],
+                      ["delivery", ar ? "سائق توصيل" : "Delivery Driver"],
+                      ["other", ar ? "غير ذلك" : "Other"],
+                    ].map(([value, label]) => (
+                      <label key={value} className="flex min-w-0 items-center gap-3 text-white/80">
+                        <input type="checkbox" name="previous_platforms" value={value} className="h-4 w-4 shrink-0 accent-[#7AC943]" />
+                        <span className="min-w-0 break-words">{label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
 
-  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-    <label className="flex items-center gap-3 text-white/80">
-  <input
-    type="checkbox"
-    name="previous_platforms"
-    value="uber"
-    className="h-4 w-4 accent-[#7AC943]"
-  />
-  Uber
-</label>
-
-<label className="flex items-center gap-3 text-white/80">
-  <input
-    type="checkbox"
-    name="previous_platforms"
-    value="allo_taxi"
-    className="h-4 w-4 accent-[#7AC943]"
-  />
-  Allo Taxi
-</label>
-
-<label className="flex items-center gap-3 text-white/80">
-  <input
-    type="checkbox"
-    name="previous_platforms"
-    value="taxi_service"
-    className="h-4 w-4 accent-[#7AC943]"
-  />
-  Taxi Service
-</label>
-
-<label className="flex items-center gap-3 text-white/80">
-  <input
-    type="checkbox"
-    name="previous_platforms"
-    value="chauffeur"
-    className="h-4 w-4 accent-[#7AC943]"
-  />
-  Chauffeur / Private Driver
-</label>
-
-<label className="flex items-center gap-3 text-white/80">
-  <input
-    type="checkbox"
-    name="previous_platforms"
-    value="delivery"
-    className="h-4 w-4 accent-[#7AC943]"
-  />
-  Delivery Platforms
-</label>
-
-<label className="flex items-center gap-3 text-white/80">
-  <input
-    type="checkbox"
-    name="previous_platforms"
-    value="other"
-    className="h-4 w-4 accent-[#7AC943]"
-  />
-  Other
-</label>
-  </div>
-</div>
-
-                <textarea name="notes" placeholder={ar ? "ملاحظات إضافية" : "Additional notes"} className="min-h-[140px] rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943] md:col-span-2" />
+                <textarea name="notes" placeholder={ar ? "ملاحظات إضافية" : "Additional notes"} className={`${fieldClass} min-h-[140px] md:col-span-2`} />
 
                 <div className="md:col-span-2">
-                  <button type="submit" disabled={loading} className="inline-flex items-center gap-3 rounded-2xl bg-[#7AC943] px-8 py-4 font-black text-black transition hover:scale-[1.02] disabled:opacity-60">
+                  <button type="submit" disabled={loading} className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-[#7AC943] px-8 py-4 font-black text-black transition hover:scale-[1.02] disabled:opacity-60 sm:w-auto">
                     {loading && <Loader2 className="animate-spin" size={18} />}
                     {ar ? "إرسال الطلب" : "Submit Application"}
                   </button>
