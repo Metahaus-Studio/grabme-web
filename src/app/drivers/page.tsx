@@ -230,7 +230,6 @@ selfie_file: selfieUrl,
   type="file"
   name="driver_license_file"
   accept="image/*,.pdf"
-  capture="environment"
   required
   className="w-full text-sm text-white"
 />
@@ -251,7 +250,6 @@ selfie_file: selfieUrl,
   type="file"
   name="public_license_file"
   accept="image/*,.pdf"
-  capture="environment"
   className="w-full text-sm text-white"
 />
   </label>
@@ -271,7 +269,6 @@ selfie_file: selfieUrl,
   type="file"
   name="id_document_file"
   accept="image/*,.pdf"
-  capture="environment"
   required
   className="w-full text-sm text-white"
 />
