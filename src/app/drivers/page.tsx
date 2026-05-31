@@ -63,6 +63,8 @@ export default function DriversPage() {
       driving_license: formData.get("driving_license"),
       experience_years: formData.get("experience_years"),
       availability: formData.get("availability"),
+      current_occupation: formData.get("current_occupation"),
+      previous_platforms: formData.getAll("previous_platforms").join(","),
       notes: formData.get("notes"),
       language: lang,
       status: "new",
@@ -108,7 +110,7 @@ export default function DriversPage() {
         </section>
 
         <section id="driver-application" className="bg-[#050505] px-6 pb-24 text-white">
-          <div className="mx-auto max-w-5xl rounded-[3rem] border border-white/10 bg-white/[0.035] p-8 md:p-10">
+          <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-[3rem] border border-white/10 bg-white/[0.035] p-6 md:p-10">
             <div className="mb-8 flex justify-end gap-2">
               <button onClick={() => setLang("en")} className={`rounded-xl px-4 py-2 font-bold ${!ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>EN</button>
               <button onClick={() => setLang("ar")} className={`rounded-xl px-4 py-2 font-bold ${ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>عربي</button>
@@ -142,7 +144,10 @@ export default function DriversPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="mt-10 grid gap-4 md:grid-cols-2">
+              <form
+  onSubmit={handleSubmit}
+  className="mt-10 grid w-full gap-4 md:grid-cols-2"
+>
                 <input name="full_name" required placeholder={ar ? "الاسم الكامل *" : "Full Name *"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
                 <input name="phone" required placeholder={ar ? "رقم الهاتف *" : "Phone Number *"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
                 <input name="whatsapp" placeholder={ar ? "رقم واتساب" : "WhatsApp Number"} className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]" />
@@ -202,6 +207,82 @@ export default function DriversPage() {
   <option value="rent_to_own">{ar ? "إيجار مع خيار التملك" : "Rent-to-own"}</option>
   <option value="lease">{ar ? "تأجير" : "Lease"}</option>
 </select>
+
+<input
+  name="current_occupation"
+  placeholder={ar ? "المهنة الحالية" : "Current Occupation"}
+  className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]"
+/>
+
+<div className="rounded-2xl border border-white/10 bg-black/40 p-4 md:col-span-2">
+  <p className="mb-4 text-white/80">
+    {ar
+      ? "هل عملت سابقاً مع أي من هذه الفئات؟"
+      : "Have you worked with:"}
+  </p>
+
+  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <label className="flex items-center gap-3 text-white/80">
+  <input
+    type="checkbox"
+    name="previous_platforms"
+    value="uber"
+    className="h-4 w-4 accent-[#7AC943]"
+  />
+  Uber
+</label>
+
+<label className="flex items-center gap-3 text-white/80">
+  <input
+    type="checkbox"
+    name="previous_platforms"
+    value="allo_taxi"
+    className="h-4 w-4 accent-[#7AC943]"
+  />
+  Allo Taxi
+</label>
+
+<label className="flex items-center gap-3 text-white/80">
+  <input
+    type="checkbox"
+    name="previous_platforms"
+    value="taxi_service"
+    className="h-4 w-4 accent-[#7AC943]"
+  />
+  Taxi Service
+</label>
+
+<label className="flex items-center gap-3 text-white/80">
+  <input
+    type="checkbox"
+    name="previous_platforms"
+    value="chauffeur"
+    className="h-4 w-4 accent-[#7AC943]"
+  />
+  Chauffeur / Private Driver
+</label>
+
+<label className="flex items-center gap-3 text-white/80">
+  <input
+    type="checkbox"
+    name="previous_platforms"
+    value="delivery"
+    className="h-4 w-4 accent-[#7AC943]"
+  />
+  Delivery Platforms
+</label>
+
+<label className="flex items-center gap-3 text-white/80">
+  <input
+    type="checkbox"
+    name="previous_platforms"
+    value="other"
+    className="h-4 w-4 accent-[#7AC943]"
+  />
+  Other
+</label>
+  </div>
+</div>
 
                 <textarea name="notes" placeholder={ar ? "ملاحظات إضافية" : "Additional notes"} className="min-h-[140px] rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943] md:col-span-2" />
 
