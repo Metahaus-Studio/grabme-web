@@ -223,7 +223,8 @@ selfie_file: selfieUrl,
     <input
       type="file"
       name="driver_license_file"
-      accept=".pdf,.jpg,.jpeg,.png"
+      accept="image/*,.pdf"
+capture="environment"
       required
       className="w-full text-sm text-white"
     />
@@ -231,15 +232,22 @@ selfie_file: selfieUrl,
 
   <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
     <span className="mb-2 block text-sm font-bold text-white">
-      {ar ? "رخصة النقل العمومي" : "Public Service License"}
-    </span>
+  {ar ? "رخصة النقل العمومي (اختياري)" : "Public Service License (Optional)"}
+</span>
 
-    <input
-      type="file"
-      name="public_license_file"
-      accept=".pdf,.jpg,.jpeg,.png"
-      className="w-full text-sm text-white"
-    />
+<p className="mb-3 text-xs leading-5 text-white/50">
+  {ar
+    ? "إذا لم تكن لديك الآن، يمكنك إحضارها أو إرسالها خلال مرحلة الانضمام."
+    : "If you do not have it now, you can bring or send it during onboarding."}
+</p>
+
+<input
+  type="file"
+  name="public_license_file"
+  accept="image/*,.pdf"
+capture="environment"
+  className="w-full text-sm text-white"
+/>
   </label>
 
   <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
@@ -250,7 +258,8 @@ selfie_file: selfieUrl,
     <input
       type="file"
       name="id_document_file"
-      accept=".pdf,.jpg,.jpeg,.png"
+      accept="image/*,.pdf"
+capture="environment"
       required
       className="w-full text-sm text-white"
     />
@@ -262,12 +271,13 @@ selfie_file: selfieUrl,
     </span>
 
     <input
-      type="file"
-      name="selfie_file"
-      accept=".jpg,.jpeg,.png"
-      required
-      className="w-full text-sm text-white"
-    />
+  type="file"
+  name="selfie_file"
+  accept="image/*"
+  capture="user"
+  required
+  className="w-full text-sm text-white"
+/>
   </label>
 </div>
                 <input name="nationality" placeholder={ar ? "الجنسية" : "Nationality"} className={fieldClass} />
