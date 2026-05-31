@@ -38,6 +38,9 @@ export default function AdminDriversPage() {
   const [search, setSearch] = useState("");
   const [evFilter, setEvFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
+  const [authorized, setAuthorized] = useState(false);
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   async function fetchDrivers() {
     setLoading(true);
@@ -163,6 +166,50 @@ export default function AdminDriversPage() {
 
     URL.revokeObjectURL(url);
   }
+
+  if (!authorized) {
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-[#050505] px-4 text-white">
+      <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.035] p-8">
+        <p className="mb-2 font-bold text-[#7AC943]">GRABME ADMIN</p>
+        <h1 className="text-4xl font-black">Admin Access</h1>
+        <p className="mt-3 text-white/60">
+          Enter password to view driver applications.
+        </p>
+
+        <form
+          className="mt-8 grid gap-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+
+            if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+              setAuthorized(true);
+              setPasswordError("");
+            } else {
+              setPasswordError("Wrong password.");
+            }
+          }}
+        >
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="w-full rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]"
+          />
+
+          {passwordError && (
+            <p className="text-sm text-red-400">{passwordError}</p>
+          )}
+
+          <button className="rounded-2xl bg-[#7AC943] px-6 py-4 font-black text-black">
+            Access Dashboard
+          </button>
+        </form>
+      </div>
+    </main>
+  );
+}
 
   return (
     <main className="min-h-screen bg-[#050505] px-4 py-8 text-white md:px-8">
