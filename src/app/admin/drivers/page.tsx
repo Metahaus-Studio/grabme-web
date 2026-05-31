@@ -44,6 +44,11 @@ export default function AdminDriversPage() {
   const [passwordError, setPasswordError] = useState("");
   const [selectedDriver, setSelectedDriver] = useState<DriverApplication | null>(null);
   const [savingNotes, setSavingNotes] = useState(false);
+  const whatsappNumber =
+selectedDriver?.whatsapp ||
+selectedDriver?.phone ||
+"";
+
 
   async function fetchDrivers() {
     setLoading(true);
@@ -461,48 +466,78 @@ async function updateRecruiterNotes(id: string, recruiter_notes: string) {
           </a>
         )}
 
-        {selectedDriver.whatsapp && (
+       {whatsappNumber && (
   <a
-    href={`https://wa.me/${selectedDriver.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
-      `Hello ${selectedDriver.full_name || ""}, thank you for applying to become a GRABME driver. We received your application and would like to contact you for the next onboarding steps.`
+    href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${encodeURIComponent(
+`Hello ${selectedDriver.full_name || ""},
+
+This is the GRABME team.
+
+Thank you for applying to become a GRABME driver. We have successfully received your application and would like to contact you regarding the next onboarding steps.
+
+Best regards,
+GRABME Team
+
+مرحباً ${selectedDriver.full_name || ""}،
+
+معك فريق GRABME.
+
+شكراً لتقديم طلب الانضمام كسائق معنا. لقد استلمنا طلبك بنجاح ونود التواصل معك بخصوص الخطوات التالية لاستكمال إجراءات الانضمام.
+
+فريق GRABME`
     )}`}
     target="_blank"
+    rel="noopener noreferrer"
     className="rounded-2xl border border-[#7AC943]/40 bg-[#7AC943]/10 px-5 py-4 text-center font-black text-[#7AC943]"
   >
     WhatsApp
   </a>
 )}
+
+
       </div>
 
-      <div className="mb-6 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5">
-        <p className="mb-3 text-sm text-white/50">Application Status</p>
-        <select
-          value={selectedDriver.status || "new"}
-          onChange={(e) => {
-            updateStatus(selectedDriver.id, e.target.value);
-            setSelectedDriver({ ...selectedDriver, status: e.target.value });
+     <div className="mb-6 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5">
+  <p className="mb-4 text-sm text-white/50">Application Status</p>
+
+  <div className="grid grid-cols-2 gap-3">
+    {[
+      ["new", "New"],
+      ["contacted", "Contacted"],
+      ["interview", "Interview"],
+      ["approved", "Approved"],
+      ["rejected", "Rejected"],
+    ].map(([value, label]) => {
+      const active = (selectedDriver.status || "new") === value;
+
+      return (
+        <button
+          key={value}
+          type="button"
+          onClick={() => {
+            updateStatus(selectedDriver.id, value);
+            setSelectedDriver({ ...selectedDriver, status: value });
           }}
-         className={`w-full rounded-2xl border border-white/10 bg-black/40 p-4 font-bold outline-none
-${
-  selectedDriver.status === "approved"
-    ? "text-green-400"
-    : selectedDriver.status === "rejected"
-    ? "text-red-400"
-    : selectedDriver.status === "interview"
-    ? "text-orange-400"
-    : selectedDriver.status === "contacted"
-    ? "text-yellow-400"
-    : "text-[#7AC943]"
-}
-`}
+          className={`rounded-2xl border px-4 py-3 text-sm font-black transition ${
+            active
+              ? value === "approved"
+                ? "border-green-400 bg-green-400 text-black"
+                : value === "rejected"
+                ? "border-red-400 bg-red-400 text-black"
+                : value === "interview"
+                ? "border-orange-400 bg-orange-400 text-black"
+                : value === "contacted"
+                ? "border-yellow-400 bg-yellow-400 text-black"
+                : "border-[#7AC943] bg-[#7AC943] text-black"
+              : "border-white/10 bg-black/40 text-white/60 hover:border-[#7AC943]/50 hover:text-white"
+          }`}
         >
-          <option value="new">New</option>
-          <option value="contacted">Contacted</option>
-          <option value="interview">Interview</option>
-          <option value="approved">Approved</option>
-          <option value="rejected">Rejected</option>
-        </select>
-      </div>
+          {label}
+        </button>
+      );
+    })}
+  </div>
+</div>
 
       <div className="mb-6 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5">
   <p className="mb-3 text-sm text-white/50">
