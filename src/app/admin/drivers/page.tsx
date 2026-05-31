@@ -28,6 +28,7 @@ type DriverApplication = {
   current_occupation: string | null;
   previous_platforms: string | null;
   notes: string | null;
+  recruiter_notes: string | null;
   status: string | null;
   created_at: string;
 };
@@ -42,6 +43,7 @@ export default function AdminDriversPage() {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [selectedDriver, setSelectedDriver] = useState<DriverApplication | null>(null);
+  const [savingNotes, setSavingNotes] = useState(false);
 
   async function fetchDrivers() {
     setLoading(true);
@@ -83,6 +85,32 @@ export default function AdminDriversPage() {
       driver.id === id ? { ...driver, status } : driver
     )
   );
+}
+
+async function updateRecruiterNotes(id: string, recruiter_notes: string) {
+  setSavingNotes(true);
+
+  const { error } = await supabase
+    .from("driver_applications")
+    .update({ recruiter_notes })
+    .eq("id", id);
+
+  setSavingNotes(false);
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  setDrivers((current) =>
+    current.map((driver) =>
+      driver.id === id ? { ...driver, recruiter_notes } : driver
+    )
+  );
+
+  if (selectedDriver?.id === id) {
+    setSelectedDriver({ ...selectedDriver, recruiter_notes });
+  }
 }
 
   const filteredDrivers = useMemo(() => {
@@ -136,6 +164,7 @@ export default function AdminDriversPage() {
       "Availability",
       "Previous Platforms",
       "Notes",
+      "Recruiter Notes",
       "Status",
       "Created At",
     ];
@@ -163,6 +192,7 @@ export default function AdminDriversPage() {
       driver.availability,
       driver.previous_platforms,
       driver.notes,
+      driver.recruiter_notes,
       driver.status,
       driver.created_at,
     ]);
@@ -432,14 +462,16 @@ export default function AdminDriversPage() {
         )}
 
         {selectedDriver.whatsapp && (
-          <a
-            href={`https://wa.me/${selectedDriver.whatsapp.replace(/\D/g, "")}`}
-            target="_blank"
-            className="rounded-2xl border border-[#7AC943]/40 bg-[#7AC943]/10 px-5 py-4 text-center font-black text-[#7AC943]"
-          >
-            WhatsApp
-          </a>
-        )}
+  <a
+    href={`https://wa.me/${selectedDriver.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
+      `Hello ${selectedDriver.full_name || ""}, thank you for applying to become a GRABME driver. We received your application and would like to contact you for the next onboarding steps.`
+    )}`}
+    target="_blank"
+    className="rounded-2xl border border-[#7AC943]/40 bg-[#7AC943]/10 px-5 py-4 text-center font-black text-[#7AC943]"
+  >
+    WhatsApp
+  </a>
+)}
       </div>
 
       <div className="mb-6 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5">
@@ -450,7 +482,19 @@ export default function AdminDriversPage() {
             updateStatus(selectedDriver.id, e.target.value);
             setSelectedDriver({ ...selectedDriver, status: e.target.value });
           }}
-          className="w-full rounded-2xl border border-white/10 bg-black/40 p-4 font-bold text-[#7AC943] outline-none"
+         className={`w-full rounded-2xl border border-white/10 bg-black/40 p-4 font-bold outline-none
+${
+  selectedDriver.status === "approved"
+    ? "text-green-400"
+    : selectedDriver.status === "rejected"
+    ? "text-red-400"
+    : selectedDriver.status === "interview"
+    ? "text-orange-400"
+    : selectedDriver.status === "contacted"
+    ? "text-yellow-400"
+    : "text-[#7AC943]"
+}
+`}
         >
           <option value="new">New</option>
           <option value="contacted">Contacted</option>
@@ -459,6 +503,27 @@ export default function AdminDriversPage() {
           <option value="rejected">Rejected</option>
         </select>
       </div>
+
+      <div className="mb-6 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5">
+  <p className="mb-3 text-sm text-white/50">
+    Recruiter Notes
+  </p>
+
+  <textarea
+    defaultValue={selectedDriver.recruiter_notes || ""}
+    placeholder="Called driver, interested in EV financing, interview Tuesday..."
+    className="min-h-[140px] w-full rounded-2xl border border-white/10 bg-black/40 p-4 text-white outline-none focus:border-[#7AC943]"
+    onBlur={(e) =>
+      updateRecruiterNotes(selectedDriver.id, e.target.value)
+    }
+  />
+
+  <p className="mt-2 text-xs text-white/40">
+    {savingNotes
+      ? "Saving..."
+      : "Notes save automatically."}
+  </p>
+</div>
 
       <div className="grid gap-4">
         <Info label="Phone" value={selectedDriver.phone} />
