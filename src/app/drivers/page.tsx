@@ -217,17 +217,23 @@ selfie_file: selfieUrl,
                 <div className="md:col-span-2 grid gap-4 md:grid-cols-2">
   <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
     <span className="mb-2 block text-sm font-bold text-white">
-      {ar ? "رخصة القيادة *" : "Driver License *"}
-    </span>
+  {ar ? "رخصة القيادة *" : "Driver License *"}
+</span>
 
-    <input
-      type="file"
-      name="driver_license_file"
-      accept="image/*,.pdf"
-capture="environment"
-      required
-      className="w-full text-sm text-white"
-    />
+<p className="mb-3 text-xs leading-5 text-white/50">
+  {ar
+    ? "صوّر الرخصة أو ارفع صورة / ملف PDF."
+    : "Take a photo or upload an image / PDF."}
+</p>
+
+<input
+  type="file"
+  name="driver_license_file"
+  accept="image/*,.pdf"
+  capture="environment"
+  required
+  className="w-full text-sm text-white"
+/>
   </label>
 
   <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
@@ -237,40 +243,52 @@ capture="environment"
 
 <p className="mb-3 text-xs leading-5 text-white/50">
   {ar
-    ? "إذا لم تكن لديك الآن، يمكنك إحضارها أو إرسالها خلال مرحلة الانضمام."
-    : "If you do not have it now, you can bring or send it during onboarding."}
+    ? "صوّرها أو ارفع صورة / ملف PDF. إذا لم تكن لديك الآن، يمكنك إحضارها لاحقاً خلال مرحلة الانضمام."
+    : "Take a photo or upload an image / PDF. If you do not have it now, you can bring or send it during onboarding."}
 </p>
 
 <input
   type="file"
   name="public_license_file"
   accept="image/*,.pdf"
-capture="environment"
+  capture="environment"
   className="w-full text-sm text-white"
 />
   </label>
 
   <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
     <span className="mb-2 block text-sm font-bold text-white">
-      {ar ? "الهوية أو جواز السفر *" : "National ID / Passport *"}
-    </span>
+  {ar ? "الهوية أو جواز السفر *" : "National ID / Passport *"}
+</span>
 
-    <input
-      type="file"
-      name="id_document_file"
-      accept="image/*,.pdf"
-capture="environment"
-      required
-      className="w-full text-sm text-white"
-    />
+<p className="mb-3 text-xs leading-5 text-white/50">
+  {ar
+    ? "صوّر الهوية أو جواز السفر أو ارفع صورة / ملف PDF."
+    : "Take a photo of your ID/passport or upload an image / PDF."}
+</p>
+
+<input
+  type="file"
+  name="id_document_file"
+  accept="image/*,.pdf"
+  capture="environment"
+  required
+  className="w-full text-sm text-white"
+/>
   </label>
 
   <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
     <span className="mb-2 block text-sm font-bold text-white">
-      {ar ? "صورة شخصية *" : "Selfie Photo *"}
-    </span>
+  {ar ? "صورة شخصية *" : "Selfie Photo *"}
+</span>
 
-    <input
+<p className="mb-3 text-xs leading-5 text-white/50">
+  {ar
+    ? "التقط صورة شخصية واضحة أو ارفع صورة من الهاتف."
+    : "Take a clear selfie or upload a photo from your phone."}
+</p>
+
+<input
   type="file"
   name="selfie_file"
   accept="image/*"
