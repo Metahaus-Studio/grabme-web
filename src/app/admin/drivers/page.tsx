@@ -23,6 +23,10 @@ type DriverApplication = {
   ev_purchase_plan_interest: string | null;
   driving_license: string | null;
   public_service_license: string | null;
+  driver_license_file: string | null;
+public_license_file: string | null;
+id_document_file: string | null;
+selfie_file: string | null;
   experience_years: string | null;
   availability: string | null;
   current_occupation: string | null;
@@ -44,6 +48,7 @@ export default function AdminDriversPage() {
   const [passwordError, setPasswordError] = useState("");
   const [selectedDriver, setSelectedDriver] = useState<DriverApplication | null>(null);
   const [savingNotes, setSavingNotes] = useState(false);
+  const [documentUrls, setDocumentUrls] = useState<Record<string, string>>({});
   const whatsappNumber =
 selectedDriver?.whatsapp ||
 selectedDriver?.phone ||
@@ -116,6 +121,42 @@ async function updateRecruiterNotes(id: string, recruiter_notes: string) {
   if (selectedDriver?.id === id) {
     setSelectedDriver({ ...selectedDriver, recruiter_notes });
   }
+}
+
+function getStoragePath(fileUrl: string | null) {
+  if (!fileUrl) return "";
+
+  const marker = "/driver-documents/";
+  const index = fileUrl.indexOf(marker);
+
+  if (index === -1) return fileUrl;
+
+  return fileUrl.slice(index + marker.length);
+}
+
+async function loadDocumentUrls(driver: DriverApplication) {
+  const files = {
+    driver_license_file: getStoragePath(driver.driver_license_file),
+    public_license_file: getStoragePath(driver.public_license_file),
+    id_document_file: getStoragePath(driver.id_document_file),
+    selfie_file: getStoragePath(driver.selfie_file),
+  };
+
+  const signedUrls: Record<string, string> = {};
+
+  for (const [key, path] of Object.entries(files)) {
+    if (!path) continue;
+
+    const { data, error } = await supabase.storage
+      .from("driver-documents")
+      .createSignedUrl(path, 60 * 60);
+
+    if (!error && data?.signedUrl) {
+      signedUrls[key] = data.signedUrl;
+    }
+  }
+
+  setDocumentUrls(signedUrls);
 }
 
   const filteredDrivers = useMemo(() => {
@@ -391,7 +432,10 @@ async function updateRecruiterNotes(id: string, recruiter_notes: string) {
                 filteredDrivers.map((driver) => (
                   <tr
   key={driver.id}
-  onClick={() => setSelectedDriver(driver)}
+  onClick={() => {
+  setSelectedDriver(driver);
+  loadDocumentUrls(driver);
+}}
   className="cursor-pointer border-t border-white/10 transition hover:bg-white/[0.04]"
 >
                     <Td>{driver.full_name}</Td>
@@ -560,6 +604,25 @@ GRABME Team
   </p>
 </div>
 
+<div className="mb-6 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5">
+  <p className="mb-4 text-sm text-white/50">Driver Documents</p>
+
+  <div className="grid gap-3 sm:grid-cols-2">
+    <DocumentButton label="Driver License" url={documentUrls.driver_license_file} />
+    <DocumentButton label="Public Service License" url={documentUrls.public_license_file} />
+    <DocumentButton label="ID / Passport" url={documentUrls.id_document_file} />
+    <DocumentButton label="Selfie Photo" url={documentUrls.selfie_file} />
+  </div>
+
+  {documentUrls.selfie_file && (
+    <img
+      src={documentUrls.selfie_file}
+      alt="Driver selfie"
+      className="mt-4 max-h-72 w-full rounded-2xl border border-white/10 object-cover"
+    />
+  )}
+</div>
+
       <div className="grid gap-4">
         <Info label="Phone" value={selectedDriver.phone} />
         <Info label="WhatsApp" value={selectedDriver.whatsapp} />
@@ -590,6 +653,27 @@ GRABME Team
   </div>
 )}
     </main>
+  );
+}
+
+function DocumentButton({ label, url }: { label: string; url?: string }) {
+  if (!url) {
+    return (
+      <div className="rounded-2xl border border-white/10 bg-black/40 p-4 text-white/40">
+        {label}: Missing
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="rounded-2xl border border-[#7AC943]/30 bg-[#7AC943]/10 p-4 text-center font-black text-[#7AC943]"
+    >
+      View {label}
+    </a>
   );
 }
 

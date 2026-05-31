@@ -47,6 +47,58 @@ export default function DriversPage() {
     setError("");
 
     const formData = new FormData(form);
+    const driverLicenseFile = formData.get("driver_license_file") as File;
+const publicLicenseFile = formData.get("public_license_file") as File;
+const idDocumentFile = formData.get("id_document_file") as File;
+const selfieFile = formData.get("selfie_file") as File;
+
+let driverLicenseUrl = "";
+let publicLicenseUrl = "";
+let idDocumentUrl = "";
+let selfieUrl = "";
+
+const uploadFile = async (file: File, folder: string) => {
+  if (!file || file.size === 0) return "";
+
+  const fileName = `${folder}/${Date.now()}-${file.name}`;
+
+  const { error } = await supabase.storage
+    .from("driver-documents")
+    .upload(fileName, file);
+
+  if (error) throw error;
+
+  return fileName;
+};
+
+try {
+  driverLicenseUrl = await uploadFile(
+    driverLicenseFile,
+    "driver-licenses"
+  );
+
+  if (publicLicenseFile?.size > 0) {
+    publicLicenseUrl = await uploadFile(
+      publicLicenseFile,
+      "public-licenses"
+    );
+  }
+
+  idDocumentUrl = await uploadFile(
+    idDocumentFile,
+    "id-documents"
+  );
+
+  selfieUrl = await uploadFile(
+    selfieFile,
+    "selfies"
+  );
+} catch (err) {
+  console.error(err);
+  setLoading(false);
+  setError("Document upload failed.");
+  return;
+}
 
     const payload = {
       full_name: formData.get("full_name"),
@@ -66,6 +118,10 @@ export default function DriversPage() {
       ev_purchase_plan_interest: formData.get("ev_purchase_plan_interest"),
       driving_license: formData.get("driving_license"),
       public_service_license: formData.get("public_service_license"),
+      driver_license_file: driverLicenseUrl,
+public_license_file: publicLicenseUrl,
+id_document_file: idDocumentUrl,
+selfie_file: selfieUrl,
       experience_years: formData.get("experience_years"),
       availability: formData.get("availability"),
       current_occupation: formData.get("current_occupation"),
@@ -158,6 +214,62 @@ export default function DriversPage() {
                 <input name="phone" required placeholder={ar ? "رقم الهاتف *" : "Phone Number *"} className={fieldClass} />
                 <input name="whatsapp" placeholder={ar ? "رقم واتساب" : "WhatsApp Number"} className={fieldClass} />
                 <input name="email" type="email" placeholder={ar ? "البريد الإلكتروني" : "Email Address"} className={fieldClass} />
+                <div className="md:col-span-2 grid gap-4 md:grid-cols-2">
+  <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
+    <span className="mb-2 block text-sm font-bold text-white">
+      {ar ? "رخصة القيادة *" : "Driver License *"}
+    </span>
+
+    <input
+      type="file"
+      name="driver_license_file"
+      accept=".pdf,.jpg,.jpeg,.png"
+      required
+      className="w-full text-sm text-white"
+    />
+  </label>
+
+  <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
+    <span className="mb-2 block text-sm font-bold text-white">
+      {ar ? "رخصة النقل العمومي" : "Public Service License"}
+    </span>
+
+    <input
+      type="file"
+      name="public_license_file"
+      accept=".pdf,.jpg,.jpeg,.png"
+      className="w-full text-sm text-white"
+    />
+  </label>
+
+  <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
+    <span className="mb-2 block text-sm font-bold text-white">
+      {ar ? "الهوية أو جواز السفر *" : "National ID / Passport *"}
+    </span>
+
+    <input
+      type="file"
+      name="id_document_file"
+      accept=".pdf,.jpg,.jpeg,.png"
+      required
+      className="w-full text-sm text-white"
+    />
+  </label>
+
+  <label className="rounded-2xl border border-white/10 bg-black/40 p-4">
+    <span className="mb-2 block text-sm font-bold text-white">
+      {ar ? "صورة شخصية *" : "Selfie Photo *"}
+    </span>
+
+    <input
+      type="file"
+      name="selfie_file"
+      accept=".jpg,.jpeg,.png"
+      required
+      className="w-full text-sm text-white"
+    />
+  </label>
+</div>
                 <input name="nationality" placeholder={ar ? "الجنسية" : "Nationality"} className={fieldClass} />
                 <input name="age" placeholder={ar ? "العمر" : "Age"} className={fieldClass} />
                 <input name="city" required placeholder={ar ? "المدينة / المنطقة *" : "City / Area *"} className={fieldClass} />
