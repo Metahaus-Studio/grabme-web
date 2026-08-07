@@ -76,7 +76,11 @@ selectedDriver?.phone ||
   }
 
   useEffect(() => {
-    fetchDrivers();
+    const timer = window.setTimeout(() => {
+      void fetchDrivers();
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   async function updateStatus(id: string, status: string) {
@@ -266,7 +270,7 @@ async function loadDocumentUrls(driver: DriverApplication) {
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#050505] px-4 text-white">
       <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.035] p-8">
-        <p className="mb-2 font-bold text-[#7AC943]">GRABME ADMIN</p>
+        <p className="mb-2 font-bold text-[#53e36a]">GRABME ADMIN</p>
         <h1 className="text-4xl font-black">Admin Access</h1>
         <p className="mt-3 text-white/60">
           Enter password to view driver applications.
@@ -290,14 +294,14 @@ async function loadDocumentUrls(driver: DriverApplication) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            className="w-full rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]"
+            className="w-full rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#53e36a]"
           />
 
           {passwordError && (
             <p className="text-sm text-red-400">{passwordError}</p>
           )}
 
-          <button className="rounded-2xl bg-[#7AC943] px-6 py-4 font-black text-black">
+          <button className="rounded-2xl bg-[#53e36a] px-6 py-4 font-black text-black">
             Access Dashboard
           </button>
         </form>
@@ -311,7 +315,7 @@ async function loadDocumentUrls(driver: DriverApplication) {
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-2 text-sm font-bold text-[#7AC943]">
+            <p className="mb-2 text-sm font-bold text-[#53e36a]">
               GRABME ADMIN
             </p>
             <h1 className="text-4xl font-black tracking-[-0.04em] md:text-6xl">
@@ -333,7 +337,7 @@ async function loadDocumentUrls(driver: DriverApplication) {
 
             <button
               onClick={exportCSV}
-              className="inline-flex items-center gap-2 rounded-2xl bg-[#7AC943] px-5 py-3 font-bold text-black"
+              className="inline-flex items-center gap-2 rounded-2xl bg-[#53e36a] px-5 py-3 font-bold text-black"
             >
               <Download size={18} />
               Export CSV
@@ -348,14 +352,14 @@ async function loadDocumentUrls(driver: DriverApplication) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search name, phone, city, occupation..."
-              className="w-full rounded-2xl border border-white/10 bg-black/40 p-4 pl-11 outline-none focus:border-[#7AC943]"
+              className="w-full rounded-2xl border border-white/10 bg-black/40 p-4 pl-11 outline-none focus:border-[#53e36a]"
             />
           </div>
 
           <select
             value={evFilter}
             onChange={(e) => setEvFilter(e.target.value)}
-            className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]"
+            className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#53e36a]"
           >
             <option value="all">All EV Interest</option>
             <option value="yes">EV Yes</option>
@@ -366,7 +370,7 @@ async function loadDocumentUrls(driver: DriverApplication) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#7AC943]"
+            className="rounded-2xl border border-white/10 bg-black/40 p-4 outline-none focus:border-[#53e36a]"
           >
             <option value="all">All Statuses</option>
             <option value="new">New</option>
@@ -459,7 +463,7 @@ async function loadDocumentUrls(driver: DriverApplication) {
   <select
     value={driver.status || "new"}
     onChange={(e) => updateStatus(driver.id, e.target.value)}
-    className="rounded-full border border-white/10 bg-black px-3 py-2 text-xs font-bold text-[#7AC943] outline-none"
+    className="rounded-full border border-white/10 bg-black px-3 py-2 text-xs font-bold text-[#53e36a] outline-none"
   >
     <option value="new">New</option>
     <option value="contacted">Contacted</option>
@@ -482,7 +486,7 @@ async function loadDocumentUrls(driver: DriverApplication) {
     <div className="h-full w-full max-w-xl overflow-y-auto border-l border-white/10 bg-[#050505] p-6 text-white shadow-2xl">
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-bold text-[#7AC943]">DRIVER PROFILE</p>
+          <p className="text-sm font-bold text-[#53e36a]">DRIVER PROFILE</p>
           <h2 className="mt-2 text-3xl font-black">
             {selectedDriver.full_name || "Unnamed Driver"}
           </h2>
@@ -504,7 +508,7 @@ async function loadDocumentUrls(driver: DriverApplication) {
         {selectedDriver.phone && (
           <a
             href={`tel:${selectedDriver.phone}`}
-            className="rounded-2xl bg-[#7AC943] px-5 py-4 text-center font-black text-black"
+            className="rounded-2xl bg-[#53e36a] px-5 py-4 text-center font-black text-black"
           >
             Call Driver
           </a>
@@ -532,7 +536,7 @@ GRABME Team
     )}`}
     target="_blank"
     rel="noopener noreferrer"
-    className="rounded-2xl border border-[#7AC943]/40 bg-[#7AC943]/10 px-5 py-4 text-center font-black text-[#7AC943]"
+    className="rounded-2xl border border-[#53e36a]/40 bg-[#53e36a]/10 px-5 py-4 text-center font-black text-[#53e36a]"
   >
     WhatsApp
   </a>
@@ -572,8 +576,8 @@ GRABME Team
                 ? "border-orange-400 bg-orange-400 text-black"
                 : value === "contacted"
                 ? "border-yellow-400 bg-yellow-400 text-black"
-                : "border-[#7AC943] bg-[#7AC943] text-black"
-              : "border-white/10 bg-black/40 text-white/60 hover:border-[#7AC943]/50 hover:text-white"
+                : "border-[#53e36a] bg-[#53e36a] text-black"
+              : "border-white/10 bg-black/40 text-white/60 hover:border-[#53e36a]/50 hover:text-white"
           }`}
         >
           {label}
@@ -591,7 +595,7 @@ GRABME Team
   <textarea
     defaultValue={selectedDriver.recruiter_notes || ""}
     placeholder="Called driver, interested in EV financing, interview Tuesday..."
-    className="min-h-[140px] w-full rounded-2xl border border-white/10 bg-black/40 p-4 text-white outline-none focus:border-[#7AC943]"
+    className="min-h-[140px] w-full rounded-2xl border border-white/10 bg-black/40 p-4 text-white outline-none focus:border-[#53e36a]"
     onBlur={(e) =>
       updateRecruiterNotes(selectedDriver.id, e.target.value)
     }
@@ -670,7 +674,7 @@ function DocumentButton({ label, url }: { label: string; url?: string }) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="rounded-2xl border border-[#7AC943]/30 bg-[#7AC943]/10 p-4 text-center font-black text-[#7AC943]"
+      className="rounded-2xl border border-[#53e36a]/30 bg-[#53e36a]/10 p-4 text-center font-black text-[#53e36a]"
     >
       View {label}
     </a>
@@ -681,7 +685,7 @@ function Stat({ title, value }: { title: string; value: number }) {
   return (
     <div className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-5">
       <p className="text-sm text-white/50">{title}</p>
-      <p className="mt-2 text-3xl font-black text-[#7AC943]">{value}</p>
+      <p className="mt-2 text-3xl font-black text-[#53e36a]">{value}</p>
     </div>
   );
 }

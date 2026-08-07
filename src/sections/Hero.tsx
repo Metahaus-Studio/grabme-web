@@ -2,107 +2,70 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/Button";
-import {
-  BatteryCharging,
-  Car,
-  CreditCard,
-  MapPin,
-  Plane,
-  Users,
-  Zap,
-} from "lucide-react";
+import { BatteryCharging, Building2, CarFront, Command, Sparkles } from "lucide-react";
+
+const pillars = [
+  ["Ride", "Passenger", CarFront],
+  ["Drive", "Driver", BatteryCharging],
+  ["Operate", "Mission Control", Command],
+  ["Connect", "In-car", Sparkles],
+];
 
 export function Hero() {
-  const stats = [
-    ["Live Tracking", MapPin],
-    ["EV Fleet", BatteryCharging],
-    ["Bank Audi Pay", CreditCard],
-    ["Airport Rides", Plane],
-    ["Corporate", Users],
-    ["Luxury Cars", Car],
-  ];
-
   return (
-    <section className="relative overflow-hidden bg-[#050505] px-6 pb-6 pt-28 text-white md:min-h-screen md:pb-24 md:pt-40">
-      <div className="absolute inset-0">
+    <section className="relative min-h-[820px] overflow-hidden bg-[#050505] px-6 pb-24 pt-32 text-white md:min-h-[860px] md:pb-28 md:pt-40">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <img
-          src="/hero-phone.png"
-          alt="GRABME Hero"
-          className="
-  absolute
-  inset-0
-  h-full
-  w-full
-  object-cover
-  object-center
-  opacity-40
-  scale-[1.05]
-  translate-x-[12%]
-  translate-y-[-2%]
-  md:opacity-100
-  md:scale-[0.78]
-  md:-translate-x-[2%]
-  md:translate-y-[4%]
-"
+          src="/hero-beirut-final.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-y-0 right-0 h-full w-full object-contain object-right"
         />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/92 via-[#050505]/65 to-[#050505]/15 md:from-[#050505]/86 md:via-[#050505]/48 md:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/35 md:from-black/10 md:to-black/30" />
+        <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-[#050505] via-[#050505]/92 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_34%,rgba(83,227,106,0.08),transparent_30%)]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75 }}
-          className="max-w-[880px]"
+          transition={{ duration: 0.65 }}
+          className="max-w-[650px]"
         >
-          <div className="mb-6 inline-flex max-w-full flex-wrap items-center gap-3 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm text-white/80 backdrop-blur-xl">
-            <span className="flex items-center gap-2">
-              <Zap size={16} className="text-[#7AC943]" />
-              100% Electric
-            </span>
-            <span className="h-1 w-1 rounded-full bg-[#7AC943]" />
-            <span>Fairer than traditional ride apps</span>
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#53e36a]/25 bg-[#53e36a]/10 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#78ef87] backdrop-blur-xl">
+            <BatteryCharging size={15} /> 100% electric mobility ecosystem
           </div>
 
-          <h1 className="max-w-[850px] text-5xl font-black leading-[0.92] tracking-[-0.06em] sm:text-6xl xl:text-7xl">
-            Lebanon’s Next <br />
-            Generation <br />
-            <span className="text-[#7AC943]">Electric Mobility</span> <br />
-            Platform.
+          <h1 className="text-5xl font-black leading-[0.91] tracking-[-0.065em] sm:text-6xl lg:text-7xl xl:text-[5.7rem]">
+            Electric mobility,
+            <br />
+            <span className="text-[#53e36a]">connected.</span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-8 text-white/76 md:text-lg">
-            GRABME brings fair electric rides, premium cars, airport mobility,
-            corporate subscriptions, student plans, Bank Audi payments, and a
-            future smart in-car experience into one scalable platform.
+          <p className="mt-8 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
+            One EV platform for passengers, drivers, operations, business mobility, and the connected cabin, all built around the same live ride.
           </p>
 
-          <div className="mt-9 grid gap-4 sm:flex sm:flex-wrap">
-            <Button href="/#download" icon>
-              Download App
-            </Button>
+          <p className="mt-6 text-xs font-black uppercase tracking-[0.3em] text-white/45">
+            Ride. Drive. Operate. Connect.
+          </p>
 
-            <Button href="/drivers" variant="secondary">
-              Become a Driver
-            </Button>
-
-            <Button href="/corporate" variant="outline">
-              Corporate Plans
-            </Button>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Button href="/#download" icon>Get GRABME</Button>
+            <Button href="/drivers" variant="secondary">Drive with GRABME</Button>
+            <Button href="/corporate" variant="outline"><Building2 size={17} /> Business</Button>
           </div>
 
-          <div className="mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {stats.map(([label, Icon]) => (
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {pillars.map(([title, subtitle, Icon]) => (
               <div
-                key={label as string}
-                className="group rounded-3xl border border-white/10 bg-black/50 p-4 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-[#7AC943]/40 hover:bg-[#7AC943]/10"
+                key={title as string}
+                className="rounded-[1.35rem] border border-white/10 bg-black/48 p-4 backdrop-blur-xl"
               >
-                <Icon className="mb-3 text-[#7AC943]" size={23} />
-                <p className="text-sm font-semibold leading-5 text-white">
-                  {label as string}
-                </p>
+                <Icon size={19} className="mb-3 text-[#53e36a]" />
+                <p className="text-sm font-black">{title as string}</p>
+                <p className="mt-1 text-[11px] text-white/38">{subtitle as string}</p>
               </div>
             ))}
           </div>

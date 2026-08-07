@@ -1,37 +1,20 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
+import { BatteryCharging, Building2, CarFront, Command, MapPinned, TabletSmartphone } from "lucide-react";
+export const metadata: Metadata = { title: "About GRABME" };
 
-export default function AboutPage() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <PageHero
-          eyebrow="ABOUT GRABME"
-          title="Building Lebanon’s smart electric mobility ecosystem."
-          text="GRABME is designed to go beyond ride-hailing: electric rides, fair pricing, smart in-car technology, airport mobility, student access, elderly assistance, loyalty, corporate subscriptions, and future connected vehicles."
-        />
+const principles = [
+  ["Electric by default", "GRABME is built around an EV-only fleet rather than treating electric vehicles as a secondary ride category.", BatteryCharging],
+  ["One passenger journey", "Booking, matching, pickup, live ride, completion, ratings, programs, and airport mobility stay connected.", CarFront],
+  ["Built for operators", "Mission Control gives the mobility business an administrative layer behind the passenger and driver apps.", Command],
+  ["Connected programs", "Corporate, student, membership, and airport experiences reuse the same platform foundations.", Building2],
+  ["Live mobility", "Route, ETA, driver, vehicle, and ride state remain central to the active journey.", MapPinned],
+  ["Connected cabin", "GRABME Connect continues the authenticated ride inside supported vehicles with live trip information and cabin experiences.", TabletSmartphone],
+];
 
-        <section className="bg-[#F7F7F7] px-6 py-24 text-black">
-          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
-            {[
-              ["Mission", "Make electric transportation more accessible, affordable, and reliable for Lebanese locals."],
-              ["Sustainability", "Support cleaner mobility through EV rides, future charging partnerships, and go-green positioning."],
-              ["Technology", "Build a secure platform with booking, tracking, payments, smart screens, memberships, and scalable APIs."],
-              ["Local Focus", "Serve Lebanese everyday riders, students, elderly customers, corporate employees, airport travelers, and premium clients."],
-              ["Future Vision", "Expand into Grab-Me Connect, charging stations, AR vehicle experiences, voice booking, and smart cabin tools."],
-              ["Security", "Treat cybersecurity as a core layer for payments, live location, user accounts, and corporate mobility data."],
-            ].map(([title, text]) => (
-              <div key={title} className="rounded-[2rem] bg-white p-8 shadow-sm">
-                <h2 className="text-2xl font-black">{title}</h2>
-                <p className="mt-4 leading-7 text-black/60">{text}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
-}
+export default function AboutPage(){return <><Navbar/><main><PageHero eyebrow="ABOUT GRABME" title="An electric mobility ecosystem built as one product." text="GRABME connects the passenger journey, driver operations, business programs, Mission Control, and the in-car experience through one EV-first mobility platform."/>
+<section className="bg-[#F7F7F7] px-6 py-24 text-black"><div className="mx-auto max-w-7xl"><div className="mb-12 grid gap-8 lg:grid-cols-2 lg:items-end"><div><p className="font-black text-[#5b982f]">WHAT GRABME IS</p><h2 className="mt-3 text-4xl font-black tracking-[-0.05em] md:text-6xl">More than an e-taxi booking app.</h2></div><p className="max-w-xl text-lg leading-8 text-black/58">The public passenger experience is only one layer. GRABME is designed as a connected operating system for electric mobility - riders, drivers, operations, business programs, and the cabin working together.</p></div><div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{principles.map(([t,x,Icon]) => <div key={t as string} className="rounded-[2rem] bg-white p-8 shadow-sm"><Icon className="mb-5 text-[#53e36a]" size={32}/><h3 className="text-2xl font-black">{t as string}</h3><p className="mt-4 leading-7 text-black/60">{x as string}</p></div>)}</div></div></section>
+<section className="bg-[#050505] px-6 py-24 text-white"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2"><div><p className="font-black text-[#53e36a]">PRODUCT FAMILY</p><h2 className="mt-3 text-4xl font-black tracking-[-0.05em] md:text-6xl">Ride. Drive. Operate. Connect.</h2></div><div className="space-y-4 text-lg leading-8 text-white/58"><p><strong className="text-white">Ride</strong> gives passengers the end-to-end mobility experience.</p><p><strong className="text-white">Drive</strong> gives drivers the tools to receive and execute rides.</p><p><strong className="text-white">Operate</strong> gives GRABME the administrative and dispatch foundation behind the network.</p><p><strong className="text-white">Connect</strong> extends the active journey into supported vehicle cabins.</p></div></div></section>
+</main><Footer/></>}

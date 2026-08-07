@@ -20,7 +20,7 @@ export function Button({
       className={clsx(
         "inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-4 text-sm font-semibold transition-all duration-300",
         variant === "primary" &&
-          "bg-[#7AC943] text-black hover:bg-[#8ee653] hover:shadow-[0_0_30px_rgba(122,201,67,0.35)]",
+          "bg-[#53e36a] text-black hover:bg-[#72ef84] hover:shadow-[0_0_30px_rgba(122,201,67,0.35)]",
         variant === "secondary" &&
           "bg-white/10 text-white ring-1 ring-white/15 hover:bg-white/15",
         variant === "outline" &&

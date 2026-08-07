@@ -1,58 +1,17 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
-import { Button } from "@/components/Button";
+import { ArrowRight, Building2, CarFront, GraduationCap, Plane, TabletSmartphone, Users } from "lucide-react";
 
-export default function ContactPage() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <PageHero
-          eyebrow="CONTACT"
-          title="Start riding, driving, partnering, or building with GRABME."
-          text="This page supports passenger interest, driver onboarding, corporate subscriptions, airport mobility, student plans, partnerships, and future Grab-Me Connect inquiries."
-        />
+const paths = [
+  ["Ride with GRABME", "Explore the passenger journey and available electric ride experiences.", "/ride-types", CarFront],
+  ["Drive with GRABME", "Apply through the live driver onboarding form and submit required driver information.", "/drivers#driver-application", Users],
+  ["GRABME Business", "Explore company accounts, employee mobility, billing visibility, and reporting.", "/corporate", Building2],
+  ["GRABME Students", "Learn how verified student mobility works inside the passenger experience.", "/students", GraduationCap],
+  ["GRABME Airport", "Explore the dedicated airport journey and travel-ready EV experience.", "/airport", Plane],
+  ["GRABME Connect", "See the current connected-cabin experience available inside supported GRABME vehicles.", "/grabme-connect", TabletSmartphone],
+];
 
-        <section className="bg-[#F7F7F7] px-6 py-24 text-black">
-          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2">
-            <div className="rounded-[2rem] bg-white p-8 shadow-sm">
-              <h2 className="text-3xl font-black">Contact GRABME</h2>
-              <div className="mt-8 grid gap-4">
-                <input className="rounded-2xl border border-black/10 p-4" placeholder="Full name" />
-                <input className="rounded-2xl border border-black/10 p-4" placeholder="Email or phone" />
-                <select className="rounded-2xl border border-black/10 p-4">
-                  <option>Passenger inquiry</option>
-                  <option>Driver application</option>
-                  <option>Corporate subscription</option>
-                  <option>Student plan</option>
-                  <option>Airport rides</option>
-                  <option>Shopping / elderly assistance</option>
-                  <option>Grab-Me Connect partnership</option>
-                  <option>Charging station partnership</option>
-                </select>
-                <textarea className="min-h-36 rounded-2xl border border-black/10 p-4" placeholder="Message" />
-                <Button href="#">Submit Inquiry</Button>
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] bg-black p-8 text-white">
-              <h2 className="text-3xl font-black">Launch priorities</h2>
-              <ul className="mt-8 space-y-4 text-white/65">
-                <li>• Passenger app early access</li>
-                <li>• Driver onboarding and EV fleet setup</li>
-                <li>• Bank Audi / ATM Pay integration</li>
-                <li>• Corporate subscriptions for banks and employees</li>
-                <li>• Student ride plans</li>
-                <li>• Airport booking and car tracking</li>
-                <li>• Grab-Me Shopping for elderly grocery support</li>
-                <li>• Future Grab-Me Connect smart in-car screens</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
-}
+export default function ContactPage(){return <><Navbar/><main><PageHero eyebrow="START WITH GRABME" title="Choose the GRABME experience you need." text="Passenger mobility, driver onboarding, business programs, student access, airport journeys, and the connected cabin all have a dedicated launch path."/>
+<section className="bg-[#F7F7F7] px-6 py-24 text-black"><div className="mx-auto max-w-7xl"><div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{paths.map(([title,text,href,Icon]) => <a key={title as string} href={href as string} className="group rounded-[2rem] bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"><div className="flex items-start justify-between"><Icon className="text-[#53e36a]" size={32}/><ArrowRight className="text-black/30 transition group-hover:text-black" size={22}/></div><h2 className="mt-7 text-2xl font-black">{title as string}</h2><p className="mt-3 leading-7 text-black/60">{text as string}</p></a>)}</div></div></section>
+</main><Footer/></>}

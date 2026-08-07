@@ -1,7 +1,6 @@
-const QRCode = require("qrcode");
-const sharp = require("sharp");
-
 async function generateQR() {
+  const { default: QRCode } = await import("qrcode");
+  const { default: sharp } = await import("sharp");
 const qrBuffer = await QRCode.toBuffer("https://grabmeapp.com/drivers#driver-application", {
         width: 1500,
     margin: 2,

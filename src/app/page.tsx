@@ -1,10 +1,8 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-
 import { Hero } from "@/sections/Hero";
-import { AppShowcase } from "@/sections/AppShowcase";
-import { Features } from "@/sections/Features";
-import { RideTypes } from "@/sections/RideTypes";
+import { Ecosystem } from "@/sections/Ecosystem";
+import { MissionControl } from "@/sections/MissionControl";
 import { GrabMeConnect } from "@/sections/GrabMeConnect";
 import { Airport } from "@/sections/Airport";
 import { Students } from "@/sections/Students";
@@ -17,21 +15,18 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
       <main>
         <Hero />
-        <AppShowcase />
-        <Features />
-        <RideTypes />
+        <Ecosystem />
+        <MissionControl />
         <GrabMeConnect />
+        <Corporate />
         <Airport />
         <Students />
-        <Corporate />
         <Membership />
         <Drivers />
         <DownloadCTA />
       </main>
-
       <Footer />
     </>
   );

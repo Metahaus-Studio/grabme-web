@@ -1,41 +1,17 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
-import { BadgePercent, Gift, HeartHandshake, Megaphone, Star, Trophy } from "lucide-react";
+import { BadgePercent, Building2, CheckCircle2, GraduationCap, Star, Trophy } from "lucide-react";
+export const metadata: Metadata = { title: "Membership & Programs" };
 
-const items = [
-  ["Loyalty Points", "Reward repeat riders with points, ride credits, and future tier upgrades.", Trophy],
-  ["Gift Cards", "Ride credit gifts for friends, families, students, and corporate rewards.", Gift],
-  ["Student Discounts", "Membership layers for student pricing and verified campus ride offers.", BadgePercent],
-  ["Corporate Benefits", "Business ride credits, employee rewards, and monthly subscription packages.", HeartHandshake],
-  ["Blogger Promos", "Influencer campaigns, referral codes, and launch promotions.", Megaphone],
-  ["Premium Tiers", "Future premium benefits for priority rides, airport pickups, and luxury cars.", Star],
+const programCards = [
+  { eyebrow: "PASSENGER", title: "GRABME Membership", text: "A membership layer for eligible rider benefits, ride value, and ongoing GRABME program access.", icon: Trophy, points: ["Connected to the passenger account", "Eligible ride benefits", "Works across the core GRABME journey"] },
+  { eyebrow: "STUDENT", title: "Student Program", text: "Verified student mobility access with program-aware benefits inside the main passenger experience.", icon: GraduationCap, points: ["Verified eligibility", "Student-oriented mobility benefits", "No separate student app required"] },
+  { eyebrow: "BUSINESS", title: "Corporate Program", text: "Organization-managed mobility for approved employees and business travel.", icon: Building2, points: ["Company-managed access", "Central billing visibility", "Ride reporting and program controls"] },
 ];
 
-export default function MembershipPage() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <PageHero
-          eyebrow="GRABME MEMBERSHIP"
-          title="Rewards, loyalty, gift cards, and smart ride benefits."
-          text="GRABME Membership is the future loyalty engine of the platform, built for repeat riders, students, corporate clients, bloggers, and premium customers."
-        />
-
-        <section className="bg-[#F7F7F7] px-6 py-24 text-black">
-          <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {items.map(([title, text, Icon]) => (
-              <div key={title as string} className="rounded-[2rem] bg-white p-8 shadow-sm">
-                <Icon className="mb-5 text-[#7AC943]" size={34} />
-                <h2 className="text-2xl font-black">{title as string}</h2>
-                <p className="mt-3 leading-7 text-black/60">{text as string}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
-}
+export default function MembershipPage(){return <><Navbar/><main><PageHero eyebrow="GRABME MEMBERSHIP & PROGRAMS" title="More value, built into the ride." text="Membership, student access, and corporate mobility programs all sit on top of the same GRABME passenger and operational foundations."/>
+<section className="bg-[#F7F7F7] px-6 py-24 text-black"><div className="mx-auto max-w-7xl"><div className="grid gap-6 lg:grid-cols-3">{programCards.map(({eyebrow,title,text,icon:Icon,points}) => <div key={title} className="rounded-[2.25rem] bg-white p-8 shadow-sm"><div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#53e36a]/14 text-[#5b982f]"><Icon size={28}/></div><p className="mt-7 text-xs font-black tracking-[0.16em] text-[#5b982f]">{eyebrow}</p><h2 className="mt-2 text-3xl font-black">{title}</h2><p className="mt-4 leading-7 text-black/58">{text}</p><div className="mt-7 space-y-3">{points.map(point => <div key={point} className="flex items-start gap-3 text-sm text-black/68"><CheckCircle2 className="mt-0.5 shrink-0 text-[#53e36a]" size={18}/><span>{point}</span></div>)}</div></div>)}</div></div></section>
+<section className="bg-[#050505] px-6 py-24 text-white"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2"><div><p className="font-black text-[#53e36a]">PROGRAM-AWARE MOBILITY</p><h2 className="mt-3 text-4xl font-black tracking-[-0.05em] md:text-6xl">The benefit changes. The ride stays GRABME.</h2><p className="mt-6 max-w-xl text-lg leading-8 text-white/58">A rider can remain in one passenger experience while GRABME applies the right eligible membership, student, or business program behind the scenes.</p></div><div className="grid gap-4 sm:grid-cols-2">{[["Eligible benefits","Ride-level value and program benefits can be attached to the rider account."],["One identity","Programs follow the verified rider rather than creating disconnected accounts."],["Shared ride lifecycle","Booking, matching, live trip, completion, and rating stay consistent."],["Operational control","Program access can be managed through the GRABME administrative layer."]].map(([t,x],i) => <div key={t} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">{i === 0 ? <BadgePercent className="mb-4 text-[#53e36a]" size={24}/> : <Star className="mb-4 text-[#53e36a]" size={24}/>}<h3 className="font-black">{t}</h3><p className="mt-2 text-sm leading-6 text-white/52">{x}</p></div>)}</div></div></section>
+</main><Footer/></>}

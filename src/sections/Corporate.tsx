@@ -17,7 +17,7 @@ export function Corporate() {
         
         {/* LEFT CONTENT */}
         <div>
-          <p className="mb-5 text-sm font-black uppercase tracking-wide text-[#7AC943]">
+          <p className="mb-5 text-sm font-black uppercase tracking-wide text-[#53e36a]">
             CORPORATE
           </p>
 
@@ -54,7 +54,7 @@ export function Corporate() {
               "
             >
               <Icon
-                className="mb-7 text-[#7AC943]"
+                className="mb-7 text-[#53e36a]"
                 size={32}
               />
 
