@@ -1,23 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --grabme-green: #7ac943;
-  --grabme-black: #070707;
-  --grabme-charcoal: #121212;
-  --grabme-soft: #f7f7f7;
+  --grabme-green: #53e36a;
+  --grabme-black: #050505;
+  --grabme-charcoal: #101210;
+  --grabme-soft: #f5f6f3;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: #070707;
-  color: #ffffff;
+  background: var(--grabme-black);
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
 }
+::selection { background: var(--grabme-green); color: #050505; }

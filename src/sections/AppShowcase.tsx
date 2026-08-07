@@ -14,14 +14,12 @@ export function AppShowcase() {
     <section className="border-t border-white/5 bg-[#050505] px-6 py-24 text-white">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-3xl">
-          <p className="mb-3 font-semibold text-[#7AC943]">APP EXPERIENCE</p>
+          <p className="mb-3 font-semibold text-[#53e36a]">APP EXPERIENCE</p>
           <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl">
             A real product system, not just a taxi booking screen.
           </h2>
           <p className="mt-5 text-lg leading-8 text-white/60">
-            GRABME is designed as a complete mobility ecosystem: passenger
-            rides, airport flows, student plans, memberships, and premium
-            vehicle categories.
+            GRABME is designed as a complete mobility ecosystem: passenger rides, driver operations, airport journeys, student programs, memberships, and premium electric ride categories.
           </p>
           <p className="mt-3 text-sm text-white/40">
             Example prices shown in USD. LBP conversion can be displayed using
@@ -37,7 +35,7 @@ export function AppShowcase() {
             >
               <div className="mb-5 flex items-center justify-between">
                 <p className="font-bold">{label}</p>
-                <span className="rounded-full bg-[#7AC943]/15 px-3 py-1 text-xs font-bold text-[#7AC943]">
+                <span className="rounded-full bg-[#53e36a]/15 px-3 py-1 text-xs font-bold text-[#53e36a]">
                   UI
                 </span>
               </div>

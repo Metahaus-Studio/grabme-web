@@ -2,18 +2,26 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GRABME E-Taxi | Electric Mobility Platform",
+  title: {
+    default: "GRABME | Electric Mobility, Connected",
+    template: "%s | GRABME",
+  },
   description:
-    "Lebanon's next generation electric mobility platform for smart rides, premium transportation, corporate mobility, and secure payments.",
+    "GRABME is an EV-only mobility ecosystem connecting passengers, drivers, businesses, operations, and connected in-car experiences.",
+  metadataBase: new URL("https://grabmeapp.com"),
+  openGraph: {
+    title: "GRABME | Electric Mobility, Connected",
+    description:
+      "Ride. Drive. Operate. Connect. One connected electric mobility ecosystem.",
+    url: "https://grabmeapp.com",
+    siteName: "GRABME",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );

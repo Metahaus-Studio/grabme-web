@@ -12,7 +12,6 @@ import {
   CheckCircle2,
   Clock,
   Loader2,
-  ShoppingBag,
   Wallet,
   Wifi,
 } from "lucide-react";
@@ -22,13 +21,12 @@ const benefits = [
   ["Verified Ecosystem", "Driver and vehicle approval builds trust and platform safety.", BadgeCheck],
   ["EV Mobility", "Participate in Lebanon’s electric transportation shift.", Car],
   ["Earnings Tools", "Track rides, income, performance, and daily progress.", Wallet],
-  ["Charging Support", "Future charging station partnerships including locations like Spinneys.", BatteryCharging],
-  ["Grab-Me Connect", "Future in-car screens with login/logout, Wi-Fi, lost item support, and tracking.", Wifi],
-  ["Shopping Assistance", "Optional elderly/grocery support add-on for short service rides.", ShoppingBag],
+  ["EV Operations", "Operate inside an EV-first mobility platform built around electric ride delivery.", BatteryCharging],
+  ["GRABME Connect", "Connected-cabin ride information and passenger experiences inside supported GRABME vehicles.", Wifi],
 ];
 
 const fieldClass =
-  "w-full min-w-0 rounded-2xl border border-white/10 bg-black/40 p-4 text-base outline-none focus:border-[#7AC943]";
+  "w-full min-w-0 rounded-2xl border border-white/10 bg-black/40 p-4 text-base outline-none focus:border-[#53e36a]";
 
 export default function DriversPage() {
   const [lang, setLang] = useState<"en" | "ar">("en");
@@ -152,15 +150,15 @@ selfie_file: selfieUrl,
       <main>
         <PageHero
           eyebrow="DRIVERS"
-          title="Drive the future of electric mobility."
-          text="GRABME gives drivers a modern digital platform for electric rides, premium customers, airport trips, corporate demand, student rides, and future smart vehicle tools."
+          title="Drive electric mobility with GRABME."
+          text="GRABME gives drivers a purpose-built operating experience for availability, ride requests, passenger pickup, trip execution, navigation, earnings, ratings, airport journeys, and business mobility."
         />
 
         <section className="bg-[#050505] px-6 py-24 text-white">
           <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-4">
             {benefits.map(([title, text, Icon]) => (
               <div key={title as string} className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7">
-                <Icon className="mb-5 text-[#7AC943]" size={32} />
+                <Icon className="mb-5 text-[#53e36a]" size={32} />
                 <h2 className="text-xl font-black">{title as string}</h2>
                 <p className="mt-3 text-sm leading-6 text-white/60">{text as string}</p>
               </div>
@@ -171,16 +169,16 @@ selfie_file: selfieUrl,
         <section id="driver-application" className="scroll-mt-24 bg-[#050505] px-4 pb-24 text-white md:px-6">
           <div className="mx-auto w-full max-w-5xl rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 md:rounded-[3rem] md:p-10">
             <div className="mb-8 flex justify-end gap-2">
-              <button onClick={() => setLang("en")} className={`rounded-xl px-4 py-2 font-bold ${!ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>
+              <button onClick={() => setLang("en")} className={`rounded-xl px-4 py-2 font-bold ${!ar ? "bg-[#53e36a] text-black" : "bg-white/10"}`}>
                 EN
               </button>
-              <button onClick={() => setLang("ar")} className={`rounded-xl px-4 py-2 font-bold ${ar ? "bg-[#7AC943] text-black" : "bg-white/10"}`}>
+              <button onClick={() => setLang("ar")} className={`rounded-xl px-4 py-2 font-bold ${ar ? "bg-[#53e36a] text-black" : "bg-white/10"}`}>
                 عربي
               </button>
             </div>
 
             <div dir={ar ? "rtl" : "ltr"}>
-              <p className="mb-3 font-semibold text-[#7AC943]">
+              <p className="mb-3 font-semibold text-[#53e36a]">
                 {ar ? "طلب الانضمام كسائق" : "DRIVER APPLICATION"}
               </p>
 
@@ -195,7 +193,7 @@ selfie_file: selfieUrl,
               </p>
 
               {submitted && (
-                <div className="mt-8 flex items-center gap-3 rounded-2xl border border-[#7AC943]/30 bg-[#7AC943]/10 p-4 text-[#7AC943]">
+                <div className="mt-8 flex items-center gap-3 rounded-2xl border border-[#53e36a]/30 bg-[#53e36a]/10 p-4 text-[#53e36a]">
                   <CheckCircle2 size={22} />
                   <p className="font-bold">
                     {ar ? "تم استلام طلبك. سنتواصل معك قريباً." : "Application received. We’ll contact you soon."}
@@ -377,7 +375,7 @@ selfie_file: selfieUrl,
                       ["other", ar ? "غير ذلك" : "Other"],
                     ].map(([value, label]) => (
                       <label key={value} className="flex min-w-0 items-center gap-3 text-white/80">
-                        <input type="checkbox" name="previous_platforms" value={value} className="h-4 w-4 shrink-0 accent-[#7AC943]" />
+                        <input type="checkbox" name="previous_platforms" value={value} className="h-4 w-4 shrink-0 accent-[#53e36a]" />
                         <span className="min-w-0 break-words">{label}</span>
                       </label>
                     ))}
@@ -387,7 +385,7 @@ selfie_file: selfieUrl,
                 <textarea name="notes" placeholder={ar ? "ملاحظات إضافية" : "Additional notes"} className={`${fieldClass} min-h-[140px] md:col-span-2`} />
 
                 <div className="md:col-span-2">
-                  <button type="submit" disabled={loading} className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-[#7AC943] px-8 py-4 font-black text-black transition hover:scale-[1.02] disabled:opacity-60 sm:w-auto">
+                  <button type="submit" disabled={loading} className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-[#53e36a] px-8 py-4 font-black text-black transition hover:scale-[1.02] disabled:opacity-60 sm:w-auto">
                     {loading && <Loader2 className="animate-spin" size={18} />}
                     {ar ? "إرسال الطلب" : "Submit Application"}
                   </button>

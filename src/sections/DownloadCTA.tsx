@@ -2,11 +2,11 @@ import { Apple, Play } from "lucide-react";
 
 export function DownloadCTA() {
   return (
-    <section id="download" className="bg-[#F7F7F7] px-6 py-24 text-black">
+    <section id="download" className="bg-[#F7F7F7] px-6 py-28 md:py-36 text-black">
       <div className="mx-auto max-w-7xl rounded-[3rem] bg-black p-10 text-white md:p-16">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <p className="mb-3 font-semibold text-[#7AC943]">DOWNLOAD</p>
+            <p className="mb-3 font-semibold text-[#53e36a]">DOWNLOAD</p>
             <h2 className="text-4xl font-black tracking-[-0.04em] md:text-6xl">
               Your ride, your way.
             </h2>
