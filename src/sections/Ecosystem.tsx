@@ -16,7 +16,7 @@ export function Ecosystem() {
             <p className="text-xs font-black uppercase tracking-[0.16em] text-[#428d37]">ONE PRODUCT FAMILY</p>
             <h2 className="mt-3 max-w-3xl text-4xl font-black leading-[0.95] tracking-[-0.055em] md:text-6xl">Four experiences. One GRABME journey.</h2>
           </div>
-          <p className="max-w-xl text-base leading-7 text-black/55 lg:justify-self-end">The public website now mirrors the way the actual product works: one visual language, one live ride lifecycle, and one EV mobility system.</p>
+          <p className="max-w-xl text-base leading-7 text-black/55 lg:justify-self-end">From booking a ride to managing operations and experiencing the connected cabin, GRABME brings every part of electric mobility into one seamless ecosystem.</p>
         </div>
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {experiences.map(({ eyebrow, title, text, href, icon: Icon }) => (
