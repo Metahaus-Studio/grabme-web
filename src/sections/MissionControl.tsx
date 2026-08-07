@@ -11,7 +11,7 @@ const capabilities = [
 
 export function MissionControl() {
   return (
-    <section id="mission-control" className="relative overflow-hidden bg-[#080a08] px-6 py-28 text-white md:py-40">
+    <section id="mission-control" className="relative overflow-hidden bg-[#080a08] px-6 pt-28 pb-14 text-white md:py-40">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_40%,rgba(122,201,67,0.16),transparent_28%)]" />
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>

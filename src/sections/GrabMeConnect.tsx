@@ -11,7 +11,7 @@ const items = [
 
 export function GrabMeConnect() {
   return (
-    <section className="bg-[#050505] px-6 py-28 text-white md:py-40">
+    <section className="bg-[#050505] px-6 pt-14 pb-28 text-white md:py-40">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="font-bold text-[#53e36a]">GRABME CONNECT</p>

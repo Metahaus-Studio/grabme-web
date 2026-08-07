@@ -19,10 +19,10 @@ export function Hero() {
           src="/hero-beirut-final.png"
           alt=""
           aria-hidden="true"
-          className="absolute right-[-120px] top-[500px] h-[520px] w-auto max-w-none object-contain md:inset-y-0 md:right-0 md:top-auto md:h-full md:w-full md:max-w-full md:object-right"
+          className="absolute right-[-150px] top-[470px] h-[540px] w-auto max-w-none object-contain md:inset-y-0 md:right-0 md:top-auto md:h-full md:w-full md:max-w-full md:object-right"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/94 via-55% to-[#050505]/25 md:inset-y-0 md:left-0 md:w-[58%] md:bg-gradient-to-r md:from-[#050505] md:via-[#050505]/92 md:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/91 via-50% to-[#050505]/8 md:inset-y-0 md:left-0 md:w-[58%] md:bg-gradient-to-r md:from-[#050505] md:via-[#050505]/92 md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20 md:to-black/30" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_34%,rgba(83,227,106,0.08),transparent_30%)]" />
       </div>
 
