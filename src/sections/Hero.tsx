@@ -19,9 +19,9 @@ export function Hero() {
           src="/hero-beirut-final.png"
           alt=""
           aria-hidden="true"
-          className="absolute inset-y-0 right-0 h-full w-full object-contain object-right"
+          className="absolute right-[-120px] top-[500px] h-[520px] w-auto max-w-none object-contain md:inset-y-0 md:right-0 md:top-auto md:h-full md:w-full md:max-w-full md:object-right"
         />
-        <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-[#050505] via-[#050505]/92 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/94 via-55% to-[#050505]/25 md:inset-y-0 md:left-0 md:w-[58%] md:bg-gradient-to-r md:from-[#050505] md:via-[#050505]/92 md:to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_34%,rgba(83,227,106,0.08),transparent_30%)]" />
       </div>
@@ -47,17 +47,17 @@ export function Hero() {
             One EV platform for passengers, drivers, operations, business mobility, and the connected cabin, all built around the same live ride.
           </p>
 
-          <p className="mt-6 text-xs font-black uppercase tracking-[0.3em] text-white/45">
+          <p className="mt-6 text-xs font-black uppercase tracking-[0.26em] text-white/65 md:tracking-[0.3em] md:text-white/45">
             Ride. Drive. Operate. Connect.
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Button href="/#download" icon>Get GRABME</Button>
+          <div className="mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+            <div className="col-span-2 sm:contents"><Button href="/#download" icon>Get GRABME</Button></div>
             <Button href="/drivers" variant="secondary">Drive with GRABME</Button>
             <Button href="/corporate" variant="outline"><Building2 size={17} /> Business</Button>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mt-16 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-4">
             {pillars.map(([title, subtitle, Icon]) => (
               <div
                 key={title as string}
