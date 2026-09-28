@@ -36,9 +36,9 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-          NEXT_PUBLIC_ADMIN_PASSWORD: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSWORD }}
+          NEXT_PUBLIC_PASSENGER_API_URL: ${{ vars.NEXT_PUBLIC_PASSENGER_API_URL }}
+          NEXT_PUBLIC_WEBSITE_INTAKE_ENABLED: ${{ vars.NEXT_PUBLIC_WEBSITE_INTAKE_ENABLED }}
+          NEXT_PUBLIC_RELEASE_APPROVED: ${{ vars.NEXT_PUBLIC_RELEASE_APPROVED }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

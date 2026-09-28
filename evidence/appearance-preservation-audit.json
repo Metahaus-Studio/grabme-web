@@ -1,0 +1,138 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "width": 1440,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/account",
+      "width": 1440,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/partners",
+      "width": 1440,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/corporate",
+      "width": 1440,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/ride-types",
+      "width": 1440,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/membership",
+      "width": 1440,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/previous-site",
+      "width": 1440,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/account",
+      "width": 390,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/partners",
+      "width": 390,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/corporate",
+      "width": 390,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/ride-types",
+      "width": 390,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/membership",
+      "width": 390,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/previous-site",
+      "width": 390,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/account",
+      "width": 360,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/partners",
+      "width": 360,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/corporate",
+      "width": 360,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/ride-types",
+      "width": 360,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/membership",
+      "width": 360,
+      "dark": true,
+      "noOverflow": true
+    },
+    {
+      "route": "/previous-site",
+      "width": 360,
+      "dark": true,
+      "noOverflow": true
+    }
+  ],
+  "errors": [],
+  "checks": [
+    "dark/light persistence",
+    "system appearance follows OS change",
+    "reduced motion",
+    "Arabic dark mobile",
+    "12 original public text captures exactly preserved"
+  ]
+}

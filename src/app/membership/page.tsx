@@ -1,17 +1,4 @@
-import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { PageHero } from "@/components/PageHero";
-import { BadgePercent, Building2, CheckCircle2, GraduationCap, Star, Trophy } from "lucide-react";
-export const metadata: Metadata = { title: "Membership & Programs" };
-
-const programCards = [
-  { eyebrow: "PASSENGER", title: "GRABME Membership", text: "A membership layer for eligible rider benefits, ride value, and ongoing GRABME program access.", icon: Trophy, points: ["Connected to the passenger account", "Eligible ride benefits", "Works across the core GRABME journey"] },
-  { eyebrow: "STUDENT", title: "Student Program", text: "Verified student mobility access with program-aware benefits inside the main passenger experience.", icon: GraduationCap, points: ["Verified eligibility", "Student-oriented mobility benefits", "No separate student app required"] },
-  { eyebrow: "BUSINESS", title: "Corporate Program", text: "Organization-managed mobility for approved employees and business travel.", icon: Building2, points: ["Company-managed access", "Central billing visibility", "Ride reporting and program controls"] },
-];
-
-export default function MembershipPage(){return <><Navbar/><main><PageHero eyebrow="GRABME MEMBERSHIP & PROGRAMS" title="More value, built into the ride." text="Membership, student access, and corporate mobility programs all sit on top of the same GRABME passenger and operational foundations."/>
-<section className="bg-[#F7F7F7] px-6 py-24 text-black"><div className="mx-auto max-w-7xl"><div className="grid gap-6 lg:grid-cols-3">{programCards.map(({eyebrow,title,text,icon:Icon,points}) => <div key={title} className="rounded-[2.25rem] bg-white p-8 shadow-sm"><div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#53e36a]/14 text-[#5b982f]"><Icon size={28}/></div><p className="mt-7 text-xs font-black tracking-[0.16em] text-[#5b982f]">{eyebrow}</p><h2 className="mt-2 text-3xl font-black">{title}</h2><p className="mt-4 leading-7 text-black/58">{text}</p><div className="mt-7 space-y-3">{points.map(point => <div key={point} className="flex items-start gap-3 text-sm text-black/68"><CheckCircle2 className="mt-0.5 shrink-0 text-[#53e36a]" size={18}/><span>{point}</span></div>)}</div></div>)}</div></div></section>
-<section className="bg-[#050505] px-6 py-24 text-white"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2"><div><p className="font-black text-[#53e36a]">PROGRAM-AWARE MOBILITY</p><h2 className="mt-3 text-4xl font-black tracking-[-0.05em] md:text-6xl">The benefit changes. The ride stays GRABME.</h2><p className="mt-6 max-w-xl text-lg leading-8 text-white/58">A rider can remain in one passenger experience while GRABME applies the right eligible membership, student, or business program behind the scenes.</p></div><div className="grid gap-4 sm:grid-cols-2">{[["Eligible benefits","Ride-level value and program benefits can be attached to the rider account."],["One identity","Programs follow the verified rider rather than creating disconnected accounts."],["Shared ride lifecycle","Booking, matching, live trip, completion, and rating stay consistent."],["Operational control","Program access can be managed through the GRABME administrative layer."]].map(([t,x],i) => <div key={t} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">{i === 0 ? <BadgePercent className="mb-4 text-[#53e36a]" size={24}/> : <Star className="mb-4 text-[#53e36a]" size={24}/>}<h3 className="font-black">{t}</h3><p className="mt-2 text-sm leading-6 text-white/52">{x}</p></div>)}</div></div></section>
-</main><Footer/></>}
+import type { Metadata } from 'next';
+import { InfoPage,pages } from '@/components/passenger/InfoPage';
+export const metadata:Metadata={title:pages['membership'].title[0],description:pages['membership'].intro[0],alternates:{canonical:'/membership'}};
+export default function Page(){return <InfoPage slug="membership"/>}
