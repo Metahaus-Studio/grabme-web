@@ -15,4 +15,3 @@ test('requires bilingual publication',()=>assert.equal(publicationSchema.safePar
 test('rejects expired and duplicate service publication',()=>{assert.equal(publicationSchema.safeParse({expiresAt:'2000-01-01T00:00:00.000Z',content}).success,false);assert.equal(publicationSchema.safeParse({expiresAt:'2099-01-01T00:00:00.000Z',content:{...content,services:[content.services[0],content.services[0]]}}).success,false)});
 test('rejects non-HTTPS links',()=>assert.equal(publicationSchema.safeParse({expiresAt:'2099-01-01T00:00:00.000Z',content:{...content,appStore:'javascript:alert(1)'}}).success,false));
 test('accepts validated future publication',()=>assert.equal(publicationSchema.safeParse({expiresAt:'2099-01-01T00:00:00.000Z',content}).success,true));
-

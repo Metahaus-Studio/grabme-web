@@ -31,21 +31,21 @@ export class AdminWebsiteController {
     @Post('applications/:id/review')
     review(
     @Param('id')
-    id: string, 
+    id: string,
     @Req()
-    req: AdminRequest, 
+    req: AdminRequest,
     @Body()
     body: unknown) { return this.website.review(id, req.adminUser!.id, body); }
     @Post('content/drafts')
     draft(
     @Req()
-    req: AdminRequest, 
+    req: AdminRequest,
     @Body()
     body: unknown) { return this.website.draft(req.adminUser!.id, body); }
     @Post('content/:id/publish')
     publish(
     @Param('id')
-    id: string, 
+    id: string,
     @Req()
     req: AdminRequest) { return this.website.publish(id, req.adminUser!.id); }
 }
