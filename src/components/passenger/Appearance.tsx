@@ -1,0 +1,7 @@
+"use client";
+import {useEffect,useSyncExternalStore} from 'react';
+import {SunMoon} from 'lucide-react';
+import {useLocale} from './Locale';
+function subscribe(listener:()=>void){window.addEventListener('grabme-appearance',listener);window.addEventListener('storage',listener);return()=>{window.removeEventListener('grabme-appearance',listener);window.removeEventListener('storage',listener)}}
+function snapshot(){try{const value=localStorage.getItem('grabme-appearance');return value==='light'||value==='dark'?value:'system'}catch{return 'system'}}
+export function Appearance(){const {ar}=useLocale();const appearance=useSyncExternalStore(subscribe,snapshot,()=> 'system');useEffect(()=>{const media=window.matchMedia('(prefers-color-scheme: dark)');const apply=()=>{document.documentElement.dataset.theme=appearance==='system'?(media.matches?'dark':'light'):appearance};apply();media.addEventListener('change',apply);return()=>media.removeEventListener('change',apply)},[appearance]);return <label className="appearance"><SunMoon size={17} aria-hidden="true"/><select aria-label={ar?'المظهر':'Appearance'} value={appearance} onChange={event=>{try{localStorage.setItem('grabme-appearance',event.target.value);window.dispatchEvent(new Event('grabme-appearance'))}catch{}}}><option value="system">{ar?'النظام':'System'}</option><option value="light">{ar?'فاتح':'Light'}</option><option value="dark">{ar?'داكن':'Dark'}</option></select></label>}

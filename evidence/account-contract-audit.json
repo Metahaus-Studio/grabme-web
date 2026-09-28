@@ -1,0 +1,60 @@
+{
+  "mode": "INTERCEPTED ISOLATED FIXTURES, NOT LIVE BACKEND",
+  "checks": [
+    "same Passenger OTP payload",
+    "Bearer-scoped account GETs",
+    "membership status",
+    "eligible plans",
+    "wallet response envelope",
+    "memory-only token",
+    "401 clears account",
+    "intake retry preserves idempotency key",
+    "acknowledgment only after API reference",
+    "no subscription activation"
+  ],
+  "requests": [
+    {
+      "path": "/auth/send-otp",
+      "method": "POST"
+    },
+    {
+      "path": "/auth/verify-otp",
+      "method": "POST"
+    },
+    {
+      "path": "/users/me/profile",
+      "method": "GET"
+    },
+    {
+      "path": "/users/me/subscription-plans",
+      "method": "GET"
+    },
+    {
+      "path": "/users/me/wallet-transactions",
+      "method": "GET"
+    },
+    {
+      "path": "/users/me/profile",
+      "method": "GET"
+    },
+    {
+      "path": "/users/me/subscription-plans",
+      "method": "GET"
+    },
+    {
+      "path": "/users/me/wallet-transactions",
+      "method": "GET"
+    },
+    {
+      "path": "/website/applications",
+      "method": "POST"
+    },
+    {
+      "path": "/website/applications",
+      "method": "POST"
+    }
+  ],
+  "limitations": [
+    "Does not demonstrate DB persistence, authorized Admin queue or app entitlement synchronization."
+  ]
+}

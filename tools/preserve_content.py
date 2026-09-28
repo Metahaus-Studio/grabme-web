@@ -1,0 +1,14 @@
+import json
+from pathlib import Path
+root=Path(__file__).resolve().parents[1]
+inventory=json.loads((root/'archive/inventory.json').read_text())
+pages={}
+for item in inventory:
+ slug=item['url'].rstrip('/').split('/')[-1]
+ if slug=='www.grabmeapp.com':slug='home'
+ pages[slug]={'url':item['url'],'capturedAt':item['capturedAt'],'text':(root/f'archive/{slug}-public-text.txt').read_text(encoding='utf-8')}
+(root/'src/lib/previous-site.json').write_text(json.dumps(pages,ensure_ascii=False,indent=2),encoding='utf-8')
+report=['# Previous-site information preservation','', 'All 12 public routes remain represented. Original public copy below is retained byte-for-byte (UTF-8 decoded text) in src/lib/previous-site.json, exposed on /previous-site with a historical notice, and in the visual archive. Original source/assets are retained at revision 5c78be7d9ea62c53daa8c7b811fbce3f4082e399 and archive/source-5c78be7.zip. No .env file, private application, or credential was exported.','', '| Previous route | Replacement | Original text |','|---|---|---|']
+for slug,item in pages.items():report.append(f"| {item['url']} | {'/' if slug=='home' else '/'+slug} | /previous-site#{slug} |")
+report+=['','## Information requiring explicit qualification','', '- Priority and Luxury: preserved as earlier ride categories, with current availability unconfirmed. Standard/Premium remain the main passenger choices; no faster matching guarantee.','- Visa, Mastercard, legacy “Wish Money” wording (Whish), and cash: preserved as earlier payment references. Actual app/provider configuration governs availability. No website payment activation.','- Corporate monthly billing/credit: retained as historical program descriptions, with terms subject to approval.','- Airport flight/terminal, luggage, Meet & Greet: retained with service-enabled qualification.','- Connect login/live trip, Entertainment, Kids Mode, Work Mode, Wi-Fi and vehicle-interface boundaries: retained; equipped-vehicle/service availability applies.','- Driver onboarding: all original labels, options, upload requirements, source form and Supabase adapter are preserved. The replacement is not released until the existing onboarding continuity and private upload protections are verified.','- Mission Control: original ride/dispatch/driver/passenger/program/payment/reporting information retained; private staff access is intentionally not exposed publicly.','- Original screenshots contain historical marketing statements; they are records, not current availability confirmation.','', '## Release gate','', 'Information preservation is verified independently of functional continuity. Driver submission, protected staff access, approved store links, web intake, and payment/account integrations still need staging and owner approval before replacing production.']
+(root/'CONTENT-PRESERVATION.md').write_text('\n'.join(report)+'\n',encoding='utf-8')

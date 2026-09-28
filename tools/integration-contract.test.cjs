@@ -1,0 +1,17 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),{createRequire}=require('node:module'),path=require('node:path'),ts=require('typescript');
+const backendRequire=createRequire(path.resolve('../backend/api/package.json'));const output=ts.transpileModule(fs.readFileSync('integration/website.contract.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;const box={exports:{},require:backendRequire,URL};vm.runInNewContext(output,box);const {applicationSchema,reviewSchema,publicationSchema}=box.exports;
+const base={idempotencyKey:'ffcc5736-8a34-4f3b-8a02-fd5ac2105930',kind:'PARTNERSHIP',category:'retail',company:'Test company',contact:'Test contact',email:'QA@EXAMPLE.TEST',locations:'Beirut',interest:'Isolated contract test',consent:true,consentVersion:'website-intake-v1'};
+test('valid partnership normalizes work email',()=>assert.equal(applicationSchema.parse(base).email,'qa@example.test'));
+test('rejects missing consent',()=>assert.equal(applicationSchema.safeParse({...base,consent:false}).success,false));
+test('rejects honeypot',()=>assert.equal(applicationSchema.safeParse({...base,website:'spam.test'}).success,false));
+test('requires corporate team size and category',()=>{assert.equal(applicationSchema.safeParse({...base,kind:'CORPORATE'}).success,false);assert.equal(applicationSchema.safeParse({...base,kind:'CORPORATE',category:'corporate',teamSize:12}).success,true)});
+test('requires advertising goals',()=>assert.equal(applicationSchema.safeParse({...base,category:'advertising'}).success,false));
+test('rejects unbounded and unknown fields',()=>{assert.equal(applicationSchema.safeParse({...base,company:'x'.repeat(151)}).success,false);assert.equal(applicationSchema.safeParse({...base,status:'APPROVED'}).success,false)});
+test('rejects invalid idempotency identifiers',()=>assert.equal(applicationSchema.safeParse({...base,idempotencyKey:'predictable'}).success,false));
+test('review requires revision and note',()=>{assert.equal(reviewSchema.safeParse({status:'APPROVED',ownerId:null}).success,false);assert.equal(reviewSchema.safeParse({revision:0,status:'APPROVED',ownerId:null,note:'Reviewed by authorized staff'}).success,true)});
+const content={headline:{en:'Current services',ar:'الخدمات الحالية'},coverage:{en:'Check your pickup',ar:'تحقّق من موقعك'},services:[{id:'standard',status:'LIMITED',details:{en:'Check app',ar:'تحقّق من التطبيق'}}]};
+test('requires bilingual publication',()=>assert.equal(publicationSchema.safeParse({expiresAt:'2099-01-01T00:00:00.000Z',content:{...content,headline:{en:'Only English'}}}).success,false));
+test('rejects expired and duplicate service publication',()=>{assert.equal(publicationSchema.safeParse({expiresAt:'2000-01-01T00:00:00.000Z',content}).success,false);assert.equal(publicationSchema.safeParse({expiresAt:'2099-01-01T00:00:00.000Z',content:{...content,services:[content.services[0],content.services[0]]}}).success,false)});
+test('rejects non-HTTPS links',()=>assert.equal(publicationSchema.safeParse({expiresAt:'2099-01-01T00:00:00.000Z',content:{...content,appStore:'javascript:alert(1)'}}).success,false));
+test('accepts validated future publication',()=>assert.equal(publicationSchema.safeParse({expiresAt:'2099-01-01T00:00:00.000Z',content}).success,true));

@@ -1,0 +1,48 @@
+// REVIEW ONLY. Append through the platform's reviewed migration workflow.
+model WebsiteApplication {
+  id String @id @default(uuid())
+  idempotencyKey String @unique
+  payloadHash String
+  kind String
+  category String
+  company String
+  contact String
+  email String
+  locations String
+  interest String
+  teamSize Int?
+  volume Int?
+  campaign String?
+  consentVersion String
+  status String @default("RECEIVED")
+  ownerId String?
+  revision Int @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  audit WebsiteApplicationAudit[]
+  @@index([status, createdAt])
+  @@index([kind, createdAt])
+}
+model WebsiteApplicationAudit {
+  id String @id @default(uuid())
+  applicationId String
+  application WebsiteApplication @relation(fields:[applicationId], references:[id])
+  actorId String?
+  action String
+  note String
+  previousStatus String?
+  nextStatus String
+  createdAt DateTime @default(now())
+  @@index([applicationId, createdAt])
+}
+model WebsitePublication {
+  id String @id @default(uuid())
+  state String @default("DRAFT")
+  content Json
+  createdBy String
+  approvedBy String?
+  createdAt DateTime @default(now())
+  publishedAt DateTime?
+  expiresAt DateTime
+  @@index([state, publishedAt])
+}

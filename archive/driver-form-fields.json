@@ -1,0 +1,402 @@
+{
+  "url": "https://grabmeapp.com/drivers",
+  "capturedAt": "2026-09-28T18:58:34.050Z",
+  "fields": [
+    {
+      "tag": "INPUT",
+      "name": "full_name",
+      "type": "text",
+      "placeholder": "Full Name *",
+      "required": true,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "phone",
+      "type": "text",
+      "placeholder": "Phone Number *",
+      "required": true,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "whatsapp",
+      "type": "text",
+      "placeholder": "WhatsApp Number",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "email",
+      "type": "email",
+      "placeholder": "Email Address",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "driver_license_file",
+      "type": "file",
+      "placeholder": null,
+      "required": true,
+      "accept": "image/*,.pdf"
+    },
+    {
+      "tag": "INPUT",
+      "name": "public_license_file",
+      "type": "file",
+      "placeholder": null,
+      "required": false,
+      "accept": "image/*,.pdf"
+    },
+    {
+      "tag": "INPUT",
+      "name": "id_document_file",
+      "type": "file",
+      "placeholder": null,
+      "required": true,
+      "accept": "image/*,.pdf"
+    },
+    {
+      "tag": "INPUT",
+      "name": "selfie_file",
+      "type": "file",
+      "placeholder": null,
+      "required": true,
+      "accept": "image/*"
+    },
+    {
+      "tag": "INPUT",
+      "name": "nationality",
+      "type": "text",
+      "placeholder": "Nationality",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "age",
+      "type": "text",
+      "placeholder": "Age",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "city",
+      "type": "text",
+      "placeholder": "City / Area *",
+      "required": true,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "current_occupation",
+      "type": "text",
+      "placeholder": "Current Occupation / Work",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "vehicle_type",
+      "type": "text",
+      "placeholder": "Vehicle Type",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "vehicle_brand",
+      "type": "text",
+      "placeholder": "Vehicle Brand",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "vehicle_model",
+      "type": "text",
+      "placeholder": "Vehicle Model",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "vehicle_year",
+      "type": "text",
+      "placeholder": "Vehicle Year",
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "SELECT",
+      "name": "own_vehicle",
+      "type": "select-one",
+      "placeholder": null,
+      "required": true,
+      "accept": null,
+      "options": [
+        {
+          "label": "Do you own your vehicle? *",
+          "value": ""
+        },
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "tag": "SELECT",
+      "name": "electric_vehicle",
+      "type": "select-one",
+      "placeholder": null,
+      "required": true,
+      "accept": null,
+      "options": [
+        {
+          "label": "Is your vehicle electric? *",
+          "value": ""
+        },
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        },
+        {
+          "label": "No, but willing to drive EV",
+          "value": "willing_to_switch"
+        }
+      ]
+    },
+    {
+      "tag": "SELECT",
+      "name": "driving_license",
+      "type": "select-one",
+      "placeholder": null,
+      "required": true,
+      "accept": null,
+      "options": [
+        {
+          "label": "Valid driving license? *",
+          "value": ""
+        },
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "tag": "SELECT",
+      "name": "public_service_license",
+      "type": "select-one",
+      "placeholder": null,
+      "required": false,
+      "accept": null,
+      "options": [
+        {
+          "label": "Public service driving license?",
+          "value": ""
+        },
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        },
+        {
+          "label": "In progress",
+          "value": "in_progress"
+        }
+      ]
+    },
+    {
+      "tag": "SELECT",
+      "name": "experience_years",
+      "type": "select-one",
+      "placeholder": null,
+      "required": false,
+      "accept": null,
+      "options": [
+        {
+          "label": "Years of driving experience",
+          "value": ""
+        },
+        {
+          "label": "0–1",
+          "value": "0-1"
+        },
+        {
+          "label": "2–5",
+          "value": "2-5"
+        },
+        {
+          "label": "5–10",
+          "value": "5-10"
+        },
+        {
+          "label": "10+",
+          "value": "10+"
+        }
+      ]
+    },
+    {
+      "tag": "SELECT",
+      "name": "availability",
+      "type": "select-one",
+      "placeholder": null,
+      "required": true,
+      "accept": null,
+      "options": [
+        {
+          "label": "Availability *",
+          "value": ""
+        },
+        {
+          "label": "Full-time",
+          "value": "full_time"
+        },
+        {
+          "label": "Part-time",
+          "value": "part_time"
+        },
+        {
+          "label": "Weekends only",
+          "value": "weekends"
+        },
+        {
+          "label": "Flexible",
+          "value": "flexible"
+        }
+      ]
+    },
+    {
+      "tag": "SELECT",
+      "name": "interested_in_grabme_ev",
+      "type": "select-one",
+      "placeholder": null,
+      "required": true,
+      "accept": null,
+      "options": [
+        {
+          "label": "Interested in a GRABME EV? *",
+          "value": ""
+        },
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        },
+        {
+          "label": "Maybe, I want more details",
+          "value": "maybe"
+        }
+      ]
+    },
+    {
+      "tag": "SELECT",
+      "name": "ev_purchase_plan_interest",
+      "type": "select-one",
+      "placeholder": null,
+      "required": false,
+      "accept": null,
+      "options": [
+        {
+          "label": "Preferred EV plan",
+          "value": ""
+        },
+        {
+          "label": "Purchase",
+          "value": "purchase"
+        },
+        {
+          "label": "Monthly installments",
+          "value": "monthly_installments"
+        },
+        {
+          "label": "Rent-to-own",
+          "value": "rent_to_own"
+        },
+        {
+          "label": "Lease",
+          "value": "lease"
+        }
+      ]
+    },
+    {
+      "tag": "INPUT",
+      "name": "previous_platforms",
+      "type": "checkbox",
+      "placeholder": null,
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "previous_platforms",
+      "type": "checkbox",
+      "placeholder": null,
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "previous_platforms",
+      "type": "checkbox",
+      "placeholder": null,
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "previous_platforms",
+      "type": "checkbox",
+      "placeholder": null,
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "previous_platforms",
+      "type": "checkbox",
+      "placeholder": null,
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "INPUT",
+      "name": "previous_platforms",
+      "type": "checkbox",
+      "placeholder": null,
+      "required": false,
+      "accept": null
+    },
+    {
+      "tag": "TEXTAREA",
+      "name": "notes",
+      "type": "textarea",
+      "placeholder": "Additional notes",
+      "required": false,
+      "accept": null
+    }
+  ]
+}
