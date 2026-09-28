@@ -1,4 +1,5 @@
 "use client";
+import { websiteCopy } from '@/lib/website-copy';
 import { createContext, useContext, useEffect, useSyncExternalStore } from 'react';
 const Context = createContext({ ar: false, toggle: () => { } });
 function subscribe(listener: () => void) { window.addEventListener('grabme-language', listener); window.addEventListener('storage', listener); return () => { window.removeEventListener('grabme-language', listener); window.removeEventListener('storage', listener); }; }
@@ -23,4 +24,4 @@ export const useLocale = () => useContext(Context);
 export function T({ en, ar }: {
     en: string;
     ar: string;
-}) { return <>{useLocale().ar ? ar : en}</>; }
+}) { return <>{websiteCopy(useLocale().ar ? ar : en)}</>; }

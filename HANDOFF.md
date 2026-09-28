@@ -2,6 +2,8 @@
 
 ## Status
 
+The connected-platform direction is adopted in `SMART-SYSTEM-ROADMAP.md`. The user clarified that the Premiere/MetaHaus reference concerns design quality and the launch experience only, not public branding or a new commercial tier. Visible website copy uses ordinary punctuation without em dashes. Historical records retain their original bytes; the previous-site reader adapts punctuation only at display time. Account guidance now derives next steps from returned membership dates and eligibility, with no invented benefits or automatic actions.
+
 **Working local website preview; not a production-ready connected-platform release.** The original production site has not been deployed over, pushed, merged or changed. No DNS, provider activation, real payment, application submission, customer export or database migration was performed.
 
 Website repository: `https://github.com/Metahaus-Studio/grabme-web`.
@@ -97,3 +99,5 @@ git push --set-upstream origin codex/passenger-first-website
 ```
 
 This command pushes only the review branch. No push or merge has been performed by Codex.
+
+Regression follow-up: see REGRESSION-AUDIT.md. Restored driver navigation/home/contact journey, all 31 original form controls, and guarded original Supabase adapter. Store buttons restored with explicit pending state because original source contained no listing URLs. Live production was observed to already show the earlier replacement, so no circular fallback link is used. Driver intake remains disabled until staging and authorized Admin review pass. No deployment performed by this change.
