@@ -2,6 +2,8 @@
 
 ## Status
 
+The connected-platform direction is adopted in `SMART-SYSTEM-ROADMAP.md`. The user clarified that the Premiere/MetaHaus reference concerns design quality and the launch experience only, not public branding or a new commercial tier. Visible website copy uses ordinary punctuation without em dashes. Historical records retain their original bytes; the previous-site reader adapts punctuation only at display time. Account guidance now derives next steps from returned membership dates and eligibility, with no invented benefits or automatic actions.
+
 **Working local website preview; not a production-ready connected-platform release.** The original production site has not been deployed over, pushed, merged or changed. No DNS, provider activation, real payment, application submission, customer export or database migration was performed.
 
 Website repository: `https://github.com/Metahaus-Studio/grabme-web`.
@@ -97,3 +99,9 @@ git push --set-upstream origin codex/passenger-first-website
 ```
 
 This command pushes only the review branch. No push or merge has been performed by Codex.
+
+Regression follow-up: see REGRESSION-AUDIT.md. Restored driver navigation/home/contact journey, all 31 original form controls, and guarded original Supabase adapter. Store buttons restored with explicit pending state because original source contained no listing URLs. Live production was observed to already show the earlier replacement, so no circular fallback link is used. Driver intake remains disabled until staging and authorized Admin review pass. No deployment performed by this change.
+
+Visual and interaction follow-up: see EXPERIENCE-UPDATE.md. Added local editorial WebP imagery, revised to white/black fleet direction and passenger entering the rear seat; interactive ride/cabin selectors, accessible availability dialogs, contextual card actions, help accordion, and connected page navigation. Build, 80 route/theme/language checks, 62 internal paths/anchors and 40 desktop/mobile route checks passed. No deployment or live-service activation.
+
+Unique imagery follow-up: 42 distinct section assignments now replace the repeated three-photo pattern. Added 39 new editorial images and 640px mobile variants; retained white/black fleet and corrected passenger-entry photo. See SECTION-IMAGERY.md. Uniqueness/browser audit reports 42 unique files, 42 section assignments and zero errors. Build passed. Local changes only.

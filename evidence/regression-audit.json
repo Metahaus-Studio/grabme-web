@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "language": "en",
+      "theme": "light",
+      "width": 390,
+      "fields": 31,
+      "noOverflow": true
+    },
+    {
+      "language": "en",
+      "theme": "light",
+      "width": 1440,
+      "fields": 31,
+      "noOverflow": true
+    },
+    {
+      "language": "en",
+      "theme": "dark",
+      "width": 390,
+      "fields": 31,
+      "noOverflow": true
+    },
+    {
+      "language": "en",
+      "theme": "dark",
+      "width": 1440,
+      "fields": 31,
+      "noOverflow": true
+    },
+    {
+      "language": "ar",
+      "theme": "light",
+      "width": 390,
+      "fields": 31,
+      "noOverflow": true
+    },
+    {
+      "language": "ar",
+      "theme": "light",
+      "width": 1440,
+      "fields": 31,
+      "noOverflow": true
+    },
+    {
+      "language": "ar",
+      "theme": "dark",
+      "width": 390,
+      "fields": 31,
+      "noOverflow": true
+    },
+    {
+      "language": "ar",
+      "theme": "dark",
+      "width": 1440,
+      "fields": 31,
+      "noOverflow": true
+    }
+  ],
+  "archivedLinks": 193,
+  "liveDriver": {
+    "url": "https://grabmeapp.com/drivers",
+    "status": 200,
+    "applicationForm": 0
+  },
+  "errors": [],
+  "storeButtons": "Original buttons had no URL or action; restored with explicit pending state.",
+  "submission": "Preview disabled. Original Supabase contract restored behind release flag; no submitted data."
+}

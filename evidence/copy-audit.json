@@ -1,0 +1,206 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/ride-types",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/membership",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/corporate",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/partners",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/contact",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/account",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/download",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/students",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/airport",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/grabme-connect",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/features",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/about",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/drivers",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/mission-control",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/privacy",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/terms",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/account-deletion",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/admin/drivers",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/previous-site",
+      "language": "en",
+      "noLongDashes": true
+    },
+    {
+      "route": "/",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/ride-types",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/membership",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/corporate",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/partners",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/contact",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/account",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/download",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/students",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/airport",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/grabme-connect",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/features",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/about",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/drivers",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/mission-control",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/privacy",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/terms",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/account-deletion",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/admin/drivers",
+      "language": "ar",
+      "noLongDashes": true
+    },
+    {
+      "route": "/previous-site",
+      "language": "ar",
+      "noLongDashes": true
+    }
+  ],
+  "archiveTextPreserved": true,
+  "publicPremiereBranding": false
+}
