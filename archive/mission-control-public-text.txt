@@ -1,0 +1,85 @@
+Ride
+Drive
+Operate
+Business
+Connect
+Airport
+Students
+About
+Download App
+
+GRABME MISSION CONTROL
+
+Every ride. One operating layer.
+
+Mission Control is the administrative foundation behind GRABME - connecting rides, dispatch, drivers, passengers, business programs, students, airport mobility, memberships, and reporting.
+
+Ride Operations
+
+See and manage the ride lifecycle across active and completed mobility activity.
+
+Dispatch
+
+Support ride assignment and operational visibility across passenger and driver activity.
+
+Drivers
+
+Manage driver profiles, onboarding, status, and operational records.
+
+Passengers
+
+Maintain passenger visibility and account-level operational context.
+
+Corporate
+
+Support company mobility programs and business account oversight.
+
+Students
+
+Manage student mobility programs and verified program access.
+
+Airport
+
+Keep airport journeys visible within the same operational platform.
+
+Memberships
+
+Support rider program and membership administration.
+
+Payments
+
+Maintain operational visibility across passenger payment activity, ride settlement context, and driver payout workflows.
+
+Reporting
+
+Review mobility activity and program data through the administrative experience.
+
+OPERATIONS, NOT JUST SCREENS
+
+The system behind the passenger and driver apps.
+Passenger requests a ride
+
+Mission Control receives operational context around the ride and its lifecycle.
+
+Driver receives and executes
+
+Driver availability, matching, pickup, trip progress, and completion remain connected.
+
+Programs stay attached
+
+Corporate, student, airport, membership, wallet, and rating context remains part of the platform.
+
+Operations stay visible
+
+Administrators have one place to oversee mobility activity and supporting programs.
+
+Electric mobility, connected. Built for passengers, drivers, businesses, and the journey inside the vehicle.
+
+Drive
+Business
+Connect
+Contact
+
+© 2026 GRABME. All rights reserved.
+
+EV-only mobility platform.

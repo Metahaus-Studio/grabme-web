@@ -1,0 +1,882 @@
+[
+  {
+    "url": "https://www.grabmeapp.com/",
+    "capturedAt": "2026-09-28T18:30:21.509Z",
+    "status": 200,
+    "title": "GRABME | Electric Mobility, Connected",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Get GRABME",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive with GRABME",
+        "href": "/drivers"
+      },
+      {
+        "text": " Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "PASSENGERRideSearch, select an EV category, choose now or schedule, confirm pickup, pay, match, and follow the live trip.",
+        "href": "/ride-types"
+      },
+      {
+        "text": "DRIVERDriveAvailability, ride requests, pickup, navigation, trip execution, earnings, ratings, and operational status.",
+        "href": "/drivers"
+      },
+      {
+        "text": "OPERATIONSMission ControlRides, dispatch, drivers, passengers, payments, programs, support, and reporting in one operational layer.",
+        "href": "/mission-control"
+      },
+      {
+        "text": "CONNECTED CABINConnectPassenger login, active ride information, entertainment, Kids Mode, Work Mode, Wi-Fi, and ride-linked safety.",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Explore GRABME Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Explore Airport Rides",
+        "href": "/airport"
+      },
+      {
+        "text": "Explore student mobility",
+        "href": "/students"
+      },
+      {
+        "text": "Explore membership",
+        "href": "/membership"
+      },
+      {
+        "text": "Apply as Driver",
+        "href": "/drivers#driver-application"
+      },
+      {
+        "text": "Explore Driver",
+        "href": "/drivers"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/about",
+    "capturedAt": "2026-09-28T18:30:23.842Z",
+    "status": 200,
+    "title": "About GRABME | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/ride-types",
+    "capturedAt": "2026-09-28T18:30:26.696Z",
+    "status": 200,
+    "title": "Ride with GRABME | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Get GRABME ",
+        "href": "/#download"
+      },
+      {
+        "text": "Airport rides ",
+        "href": "/airport"
+      },
+      {
+        "text": "Programs ",
+        "href": "/membership"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/features",
+    "capturedAt": "2026-09-28T18:30:29.817Z",
+    "status": 200,
+    "title": "GRABME Platform | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/membership",
+    "capturedAt": "2026-09-28T18:30:32.046Z",
+    "status": 200,
+    "title": "Membership & Programs | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/students",
+    "capturedAt": "2026-09-28T18:30:34.138Z",
+    "status": 200,
+    "title": "Students | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/corporate",
+    "capturedAt": "2026-09-28T18:30:36.932Z",
+    "status": 200,
+    "title": "Business Mobility | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Talk to GRABME Business",
+        "href": "/contact"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/drivers",
+    "capturedAt": "2026-09-28T18:30:39.237Z",
+    "status": 200,
+    "title": "GRABME | Electric Mobility, Connected",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 1
+  },
+  {
+    "url": "https://www.grabmeapp.com/airport",
+    "capturedAt": "2026-09-28T18:30:41.446Z",
+    "status": 200,
+    "title": "Airport Mobility | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/grabme-connect",
+    "capturedAt": "2026-09-28T18:30:44.126Z",
+    "status": 200,
+    "title": "GRABME Connect | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Explore Connect ",
+        "href": "#experience"
+      },
+      {
+        "text": "Get GRABME",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/mission-control",
+    "capturedAt": "2026-09-28T18:30:46.499Z",
+    "status": 200,
+    "title": "Mission Control | GRABME",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  },
+  {
+    "url": "https://www.grabmeapp.com/contact",
+    "capturedAt": "2026-09-28T18:30:48.581Z",
+    "status": 200,
+    "title": "GRABME | Electric Mobility, Connected",
+    "links": [
+      {
+        "text": "",
+        "href": "/"
+      },
+      {
+        "text": "Ride",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Operate",
+        "href": "/mission-control"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Airport",
+        "href": "/airport"
+      },
+      {
+        "text": "Students",
+        "href": "/students"
+      },
+      {
+        "text": "About",
+        "href": "/about"
+      },
+      {
+        "text": "Download App ",
+        "href": "/#download"
+      },
+      {
+        "text": "Ride with GRABMEExplore the passenger journey and available electric ride experiences.",
+        "href": "/ride-types"
+      },
+      {
+        "text": "Drive with GRABMEApply through the live driver onboarding form and submit required driver information.",
+        "href": "/drivers#driver-application"
+      },
+      {
+        "text": "GRABME BusinessExplore company accounts, employee mobility, billing visibility, and reporting.",
+        "href": "/corporate"
+      },
+      {
+        "text": "GRABME StudentsLearn how verified student mobility works inside the passenger experience.",
+        "href": "/students"
+      },
+      {
+        "text": "GRABME AirportExplore the dedicated airport journey and travel-ready EV experience.",
+        "href": "/airport"
+      },
+      {
+        "text": "GRABME ConnectSee the current connected-cabin experience available inside supported GRABME vehicles.",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Drive",
+        "href": "/drivers"
+      },
+      {
+        "text": "Business",
+        "href": "/corporate"
+      },
+      {
+        "text": "Connect",
+        "href": "/grabme-connect"
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "forms": 0
+  }
+]

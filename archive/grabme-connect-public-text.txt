@@ -1,0 +1,108 @@
+Ride
+Drive
+Operate
+Business
+Connect
+Airport
+Students
+About
+Download App
+
+GRABME CONNECT
+
+Your ride, inside the cabin.
+
+GRABME Connect extends the active ride into the vehicle with passenger login, live trip visibility, entertainment, and dedicated cabin modes.
+
+Explore Connect
+Get GRABME
+
+Designed & built by MetaHaus.
+
+CURRENT CONNECT EXPERIENCE
+
+Everything the passenger needs during the active ride.
+Passenger Login
+
+Start a ride-linked cabin session so the in-car experience follows the authenticated passenger and active trip.
+
+Live Journey
+
+Keep route progress, destination, ETA, driver details, vehicle details, and trip state visible in the cabin.
+
+Entertainment
+
+Open the current in-car entertainment surface during the journey from the GRABME Connect screen.
+
+Kids Mode
+
+A simplified child-friendly mode for family journeys and a clearer cabin experience.
+
+Work Mode
+
+A focused in-car mode for passengers who want a quieter, more work-oriented journey.
+
+Wi-Fi Portal
+
+Support the connected cabin experience through the in-vehicle GRABME interface and available network connection.
+
+Ride-Linked Safety
+
+Keep core trip, driver, vehicle, and safety information attached to the active ride session.
+
+RIDE-LINKED BY DESIGN
+
+The cabin experience follows the journey.
+
+Connect is not a separate destination. It is the in-car continuation of the GRABME ride, designed around the same passenger, vehicle, driver, and trip lifecycle.
+
+01
+
+Enter the vehicle
+
+The passenger boards a GRABME EV equipped with the current Connect experience.
+
+02
+
+Open GRABME Connect
+
+The cabin screen presents the connected ride surface for the active journey.
+
+03
+
+Continue the ride
+
+Live journey information remains visible while entertainment or a cabin mode can be used.
+
+04
+
+End with the trip
+
+The connected passenger session follows the ride lifecycle and closes with the completed journey.
+
+CONNECTED TO THE RIDE
+
+One passenger experience, from phone to cabin.
+
+The Passenger app owns booking and the active trip. GRABME Connect extends that same journey inside supported vehicles, keeping the cabin experience aligned with the ride rather than creating a second disconnected product.
+
+VEHICLE BOUNDARY
+
+Software-led, vehicle-aware.
+
+GRABME Connect controls the software experience shown on supported in-car devices. Physical vehicle functions remain dependent on the capabilities and authorized interfaces provided by each EV manufacturer.
+
+GRABME CONNECT
+
+Designed & built by MetaHaus.
+
+Electric mobility, connected. Built for passengers, drivers, businesses, and the journey inside the vehicle.
+
+Drive
+Business
+Connect
+Contact
+
+© 2026 GRABME. All rights reserved.
+
+EV-only mobility platform.
