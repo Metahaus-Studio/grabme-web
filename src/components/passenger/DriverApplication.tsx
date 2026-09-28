@@ -1,4 +1,5 @@
 "use client";
+import {AvailabilityAction} from "./AvailabilityAction";
 import {T,useLocale} from './Locale';
 import {useRef,useState} from 'react';
 import {driverIntakeEnabled,submitDriverApplication} from '@/lib/driver-intake';
@@ -180,9 +181,9 @@ return <section className="account-panel" id="driver-application"><h2><T en="App
                 <label>{ar ? "ملاحظات إضافية" : "Additional notes"}<textarea name="notes" rows={5}/></label>
 
                 <div >
-                  <button className="button" type="submit" disabled={!driverIntakeEnabled || state==='sending'} >
+                  {!driverIntakeEnabled ? <AvailabilityAction kind="driver"/> : <button className="button" type="submit" disabled={state==='sending'} >
                     
                     {ar ? "إرسال الطلب" : "Submit Application"}
-                  </button>
+                  </button>}
                 </div>
               </fieldset></form></section>}

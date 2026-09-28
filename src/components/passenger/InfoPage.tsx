@@ -1,8 +1,10 @@
+import {PageImage,PageIcon,CardAction,NextJourneys} from './PageVisuals';
+import {ExperienceExplorer} from './ExperienceExplorer';
+import {HelpCenter} from './HelpCenter';
+import {EditorialImage,type Scene} from './EditorialImage';
 import {DriverApplication} from './DriverApplication';
 import {JourneyLinks} from './JourneyLinks';
-import Link from 'next/link';
 import {preservedTopics} from '@/lib/preserved-topics';
-import { ArrowUpRight } from 'lucide-react';
 import { T } from './Locale';
 import { Application } from './Application';
 import { Account } from './Account';
@@ -43,6 +45,20 @@ export const pages: Record<string, Copy> = {
     terms: { title: ['Clear terms for your journey.', 'شروط واضحة لرحلتك.'], intro: ['The approved website terms are pending review. This preview does not sell subscriptions, take payments or accept ride bookings. Review the terms shown in your Passenger app for available services.', 'شروط الموقع المعتمدة بانتظار المراجعة. لا تبيع هذه المعاينة اشتراكات ولا تستقبل دفعات أو حجوزات. راجع شروط الخدمات المتاحة في تطبيق الراكب.'] },
     'account-deletion': { title: ['Manage your account data.', 'إدارة بيانات حسابك.'], intro: ['Contact Support in the Passenger app for help with account deletion. The website does not yet submit deletion requests. Applicable retention requirements must be explained in the approved privacy policy.', 'تواصل مع الدعم في تطبيق الراكب للمساعدة في حذف الحساب. لا يرسل الموقع طلبات الحذف بعد. يجب توضيح متطلبات الاحتفاظ بالبيانات في سياسة الخصوصية المعتمدة.'] },
 };
-export function InfoPage({ slug }: {
-    slug: string;
-}) { const data = pages[slug]; return <div className="wrap info-page"><section className="page-heading"><p className="eyebrow">GRABME / {slug.replaceAll('-', ' ')}</p><h1><T en={data.title[0]} ar={data.title[1]}/></h1><p className="intro"><T en={data.intro[0]} ar={data.intro[1]}/></p>{slug === "drivers" && <a className="button" href="#driver-application"><T en="Apply as a driver" ar="قدّم طلباً كسائق"/></a>}</section>{slug === "contact" && <JourneyLinks/>}{slug === "drivers" && <DriverApplication/>}{data.cards && <div className="two-grid info-cards">{data.cards.map(([en, ar, desc, descAr, id]) => <section className="feature-panel" id={id} key={en}><h2><T en={en} ar={ar}/></h2><p><T en={desc} ar={descAr}/></p></section>)}</div>}{slug === 'ride-types' && <PublishedContent />}{slug === 'download' && <PublishedContent download/>}{preservedTopics[slug] && <div id={slug === "grabme-connect" ? "experience" : undefined} className="two-grid info-cards">{preservedTopics[slug].map(([en,ar,desc,descAr])=><section className="feature-panel" key={en}><h2><T en={en} ar={ar}/></h2><p><T en={desc} ar={descAr}/></p></section>)}</div>}{slug === 'partners'  && <Application />}{slug === 'corporate' && <Application corporate/>}{slug === 'account' && <Account />}{!['account', 'privacy', 'terms', 'account-deletion', 'download', 'partners', 'corporate', 'drivers', 'mission-control'].includes(slug) && <div className="actions"><Link className="button" href={['membership', 'students'].includes(slug) ? '/account' : '/download'}><T en={['membership', 'students'].includes(slug) ? 'View my account' : 'Continue in the app'} ar={['membership', 'students'].includes(slug) ? 'عرض حسابي' : 'تابع في التطبيق'}/><ArrowUpRight size={18}/></Link></div>}</div>; }
+export function InfoPage({slug}:{slug:string}) {
+ const data=pages[slug]; const compact=['privacy','terms','account-deletion','mission-control'].includes(slug);
+ return <div className="wrap info-page">
+ <div className={compact?'page-intro compact-intro':'page-intro'}><section className="page-heading"><p className="eyebrow"><PageIcon slug={slug}/> GRABME / {slug.replaceAll('-',' ')}</p><h1><T en={data.title[0]} ar={data.title[1]}/></h1><p className="intro"><T en={data.intro[0]} ar={data.intro[1]}/></p><CardAction slug={slug}/></section><PageImage slug={slug}/></div>
+ {slug==='ride-types' && <ExperienceExplorer/>}
+ {slug==='grabme-connect' && <ExperienceExplorer connect/>}
+ {slug==='contact' && <JourneyLinks/>}
+ {slug==='drivers' && <DriverApplication/>}
+ {data.cards && <div className="two-grid info-cards">{data.cards.map(([en,ar,desc,descAr,id],index)=><section className="feature-panel illustrated-card" id={id} key={en}>{slug==='ride-types' && <EditorialImage scene={(['city','cabin','people','city','people','city'][index]) as Scene} href="/download#app-options" label={['Explore the app','اكتشف التطبيق']}/>}<PageIcon slug={slug}/><h2><T en={en} ar={ar}/></h2><p><T en={desc} ar={descAr}/></p><CardAction slug={slug}/></section>)}</div>}
+ {slug==='ride-types' && <PublishedContent/>}
+ {slug==='download' && <section id="app-options"><h2><T en="Choose your app store." ar="اختر متجر تطبيقاتك."/></h2><PublishedContent download/></section>}
+ {preservedTopics[slug] && <div id={slug==='grabme-connect'?'experience':undefined} className="two-grid info-cards">{preservedTopics[slug].map(([en,ar,desc,descAr])=><section className="feature-panel" key={en}><PageIcon slug={slug}/><h2><T en={en} ar={ar}/></h2><p><T en={desc} ar={descAr}/></p><CardAction slug={slug==='grabme-connect'?'download':slug}/></section>)}</div>}
+ {slug==='partners' && <Application/>}{slug==='corporate' && <Application corporate/>}{slug==='account' && <Account/>}
+ {slug==='contact' && <HelpCenter/>}
+ <NextJourneys/>
+ </div>;
+}

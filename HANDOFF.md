@@ -101,3 +101,5 @@ git push --set-upstream origin codex/passenger-first-website
 This command pushes only the review branch. No push or merge has been performed by Codex.
 
 Regression follow-up: see REGRESSION-AUDIT.md. Restored driver navigation/home/contact journey, all 31 original form controls, and guarded original Supabase adapter. Store buttons restored with explicit pending state because original source contained no listing URLs. Live production was observed to already show the earlier replacement, so no circular fallback link is used. Driver intake remains disabled until staging and authorized Admin review pass. No deployment performed by this change.
+
+Visual and interaction follow-up: see EXPERIENCE-UPDATE.md. Added local editorial WebP imagery, revised to white/black fleet direction and passenger entering the rear seat; interactive ride/cabin selectors, accessible availability dialogs, contextual card actions, help accordion, and connected page navigation. Build, 80 route/theme/language checks, 62 internal paths/anchors and 40 desktop/mobile route checks passed. No deployment or live-service activation.

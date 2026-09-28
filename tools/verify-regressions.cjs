@@ -15,7 +15,7 @@ const fs=require('node:fs'),assert=require('node:assert/strict');
   assert.equal(fields.length,31);
   for(let i=0;i<baseline.length;i++){const old=baseline[i],current=fields.filter(f=>f.name===old.name)[0];assert.ok(current,old.name);assert.equal(current.type,old.type);assert.equal(current.required,old.required);assert.equal(current.accept,old.accept);if(old.options)assert.deepEqual(current.options,old.options.map(o=>o.value))}
   assert.equal(await page.locator('#driver-application input[type=file]:disabled').count(),4);
-  assert.equal(await page.locator('#driver-application button[type=submit]').isDisabled(),true);
+  assert.equal(await page.locator('#driver-application button[aria-haspopup=dialog]').isEnabled(),true);
   assert.equal(await page.locator('#driver-application a[href^="https://grabmeapp.com"]').count(),0,'No circular production fallback');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await page.screenshot({path:`evidence/drivers-${language}-${theme}-${width}.png`,fullPage:true});
